@@ -69,7 +69,6 @@
   <ItemGroup>
     <Content Include="arrow_upward_black_24dp.svg" />
     <Content Include="Form.aspx" />
-    <Content Include="index.html" />
     <Content Include="iota-smart_home.jpg" />
     <Content Include="styles.css" />
     <Content Include="Web.config" />

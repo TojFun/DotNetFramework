@@ -1,9 +1,10 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
 
 <!DOCTYPE html>
 
 <html lang="he" dir="rtl">
-<head runat="server">
+  <head runat="server">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,34 +12,33 @@
     <link rel="stylesheet" href="styles.css" />
 
     <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
-</head>
-<body>
+    <asp:ContentPlaceHolder ID="head" runat="server"> </asp:ContentPlaceHolder>
+  </head>
+  <body>
     <header id="header">
-
-        <nav>
-            <table>
-              <tbody>
-                <tr>
-                  <td><a href="" class="link">האם זה שווה את זה</a></td>
-                  <td><a href="" class="link">השימושים </a></td>
-                  <td><a href="" class="link">האפשרויות</a></td>
-                  <td><a href="" class="link">המלצות</a></td>
-                  <td><a href="" class="link">איך מתחילים</a></td>
-                  <td><a href="" class="link">ארכיטקטורה</a></td>
-                </tr>
-              </tbody>
-            </table>
-        </nav>
+      <nav>
+        <table>
+          <tbody>
+            <tr>
+              <td><a href="" class="link">האם זה שווה את זה</a></td>
+              <td><a href="" class="link">השימושים</a></td>
+              <td><a href="" class="link">האפשרויות</a></td>
+              <td><a href="" class="link">המלצות</a></td>
+              <td><a href="" class="link">איך מתחילים</a></td>
+              <td><a href="" class="link">ארכיטקטורה</a></td>
+              <td><a href="./Form.aspx" class="link">היכנס</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </nav>
     </header>
 
-        <main>
-            <asp:ContentPlaceHolder ID="MainScreen" runat="server">
-            </asp:ContentPlaceHolder>
-        </main>
+    <main>
+      <asp:ContentPlaceHolder ID="MainScreen" runat="server">
+      </asp:ContentPlaceHolder>
+    </main>
 
-        <footer>
+    <footer>
       <h5 class="subtext">
         רוצה לדעת עוד?
         <a class="link" href="https://en.wikipedia.org/wiki/Home_automation">
@@ -55,7 +55,5 @@
         </a>
       </div>
     </footer>
-
-</body>
+  </body>
 </html>
-
