@@ -1,0 +1,90 @@
+:root {
+  --primary: #6200ee;
+  --primary-dark: #3700b3;
+  --secondary: #03dac5;
+
+  --primary-text: #263238;
+  --secondary-text: #546e7a;
+  --light-text: #d2e2e2;
+  --secondary-light-text: #b1b1b1;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(45, 45, 45);
+  }
+  :root {
+    --primary: #6200ee;
+    --primary-dark: #3700b3;
+
+    --secondary: #03dac5;
+
+    --primary-text: #d2e2e2;
+    --secondary-text: #abb9bf;
+  }
+}
+
+body {
+  color: var(--secondary-text);
+}
+
+nav {
+  background-color: var(--primary);
+  padding: 2%;
+  border-radius: 10px;
+}
+
+main {
+  padding: 1%;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--secondary-text);
+}
+nav a.link {
+  text-decoration: none;
+  color: var(--light-text);
+}
+nav a.link:hover,
+nav a.link:focus {
+  text-decoration: none;
+  color: var(--secondary-light-text);
+}
+
+.title {
+  color: var(--primary-text);
+}
+
+.link:hover,
+.link:focus {
+  color: var(--primary-text);
+  outline: none;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.subtext {
+  display: inline-block;
+}
+
+td {
+  text-align: center;
+  width: calc(100% / 6);
+}
+.youtube-video {
+  aspect-ratio: 560 / 315;
+  width: 100%;
+}
+.image {
+  width: 100%;
+}
+
+footer {
+  padding: 2%;
+}
+table {
+  width: 100%;
+}
