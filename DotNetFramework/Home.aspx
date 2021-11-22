@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master"
-AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs"
+AutoEventWireup="true" CodeBehind="Home.aspx.cs"
 Inherits="DotNetFramework.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
