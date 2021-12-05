@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace DotNetFramework
+namespace DotNetFramework.pages
 {
-  public partial class MasterPage : System.Web.UI.MasterPage
+  public partial class Architecture : System.Web.UI.Page
   {
     protected void Page_Load(object sender, EventArgs e)
     {

@@ -1,12 +1,11 @@
 :root {
-  --primary: #6200ee;
-  --primary-dark: #3700b3;
-  --secondary: #03dac5;
-
-  --primary-text: #263238;
-  --secondary-text: #546e7a;
-  --light-text: #d2e2e2;
-  --secondary-light-text: #b1b1b1;
+    --primary: #6200ee;
+    --primary-dark: #3700b3;
+    --secondary: #03dac5;
+    --primary-text: #263238;
+    --secondary-text: #546e7a;
+    --light-text: #d2e2e2;
+    --secondary-light-text: #b1b1b1;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -31,8 +30,9 @@ body {
 nav {
   background-color: var(--primary);
   padding: 2%;
-  border-radius: 10px;
-  font-size: 50px;
+  border-radius: 20px;
+
+  font-size: 20px;
 }
 
 main {

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-namespace DotNetFramework
+namespace DotNetFramework.pages
 {
-    public partial class Form
-    {
-        
-    }
+
+
+  public partial class WebForm2
+  {
+  }
 }
