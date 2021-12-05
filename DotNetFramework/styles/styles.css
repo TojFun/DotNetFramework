@@ -1,11 +1,13 @@
 :root {
-    --primary: #6200ee;
-    --primary-dark: #3700b3;
-    --secondary: #03dac5;
-    --primary-text: #263238;
-    --secondary-text: #546e7a;
-    --light-text: #d2e2e2;
-    --secondary-light-text: #b1b1b1;
+  --primary: #6200ee;
+  --primary-dark: #3700b3;
+  --secondary: #03dac5;
+  --primary-text: #263238;
+  --secondary-text: #546e7a;
+  --light-text: #d2e2e2;
+  --secondary-light-text: #b1b1b1;
+
+  font-size: 1.5em;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -32,7 +34,7 @@ nav {
   padding: 2%;
   border-radius: 20px;
 
-  font-size: 20px;
+  font-size: 1.2em;
 }
 
 main {
@@ -43,14 +45,20 @@ main {
   text-decoration: none;
   color: var(--secondary-text);
 }
-nav a.link {
+
+.nav-link {
   text-decoration: none;
   color: var(--light-text);
 }
-nav a.link:hover,
-nav a.link:focus {
+
+.nav-link:hover,
+.nav-link:focus {
   text-decoration: none;
   color: var(--secondary-light-text);
+}
+
+.nav-link-container {
+  text-align: center;
 }
 
 .title {
@@ -71,10 +79,6 @@ nav a.link:focus {
   display: inline-block;
 }
 
-td {
-  text-align: center;
-  width: calc(100% / 7);
-}
 .youtube-video {
   aspect-ratio: 560 / 315;
   width: 100%;
@@ -86,6 +90,40 @@ td {
 footer {
   padding: 2%;
 }
-table {
+.nav-table {
   width: 100%;
+}
+
+.login-form {
+  padding: 0 3%;
+}
+
+.form-row {
+  display: flex;
+}
+
+.form-column {
+  padding: 1%;
+}
+
+.hasLabel {
+  flex: 10%;
+}
+
+.hasTextInput {
+  flex: 90%;
+}
+
+.hasTextInput > input {
+  width: 100%;
+  height: 100%;
+}
+
+.submit-button {
+  width: 100%;
+  height: 100%;
+}
+
+.submit-button-container > .form-column {
+  flex: 50%;
 }

@@ -8,7 +8,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="/styles/styles.css" />
 
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
@@ -16,16 +16,17 @@
 <body>
     <header id="header">
         <nav>
-            <table>
+            <table class="nav-table">
                 <tbody>
                     <tr>
-                        <td><a href="./DoesItWorthIt.aspx" class="link">האם זה שווה את זה</a></td>
-                        <td><a href="./WhatCanYouDo.aspx" class="link">השימושים</a></td>
-                        <td><a href="./Options.aspx" class="link">האפשרויות</a></td>
-                        <td><a href="./Recommendations.aspx" class="link">המלצות</a></td>
-                        <td><a href="./WhereToBegin.aspx" class="link">איך מתחילים</a></td>
-                        <td><a href="./Architecture.aspx" class="link">ארכיטקטורה</a></td>
-                        <td><a href="./Form.aspx" class="link">היכנס</a></td>
+                    <td class="nav-link-container"><a href="./Home.aspx" class="nav-link">בית</a></td>
+                        <td class="nav-link-container"><a href="./DoesItWorthIt.aspx" class="nav-link">האם זה שווה את זה</a></td>
+                        <td class="nav-link-container"><a href="./WhatCanYouDo.aspx" class="nav-link">השימושים</a></td>
+                        <td class="nav-link-container"> <a href="./Options.aspx" class="nav-link">האפשרויות</a></td>
+                        <td class="nav-link-container"><a href="./Recommendations.aspx" class="nav-link">המלצות</a></td>
+                        <td class="nav-link-container"><a href="./WhereToBegin.aspx" class="nav-link">איך מתחילים</a></td>
+                        <td class="nav-link-container"><a href="./Architecture.aspx" class="nav-link">ארכיטקטורה</a></td>
+                        <td class="nav-link-container"><a href="./Form.aspx" class="nav-link">היכנס</a></td>
                     </tr>
                 </tbody>
             </table>

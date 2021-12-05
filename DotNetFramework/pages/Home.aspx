@@ -1,13 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master"
-AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="DotNetFramework.pages.Home"
-%>
-
+AutoEventWireup="true" CodeBehind="Home.aspx.cs"
+Inherits="DotNetFramework.pages.Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">
   <div>
-    <img class="image" src="../assets/iota-smart_home.jpg" alt="Couldn't load :(" />
+    <img
+      class="image"
+      src="../assets/iota-smart_home.jpg"
+      alt="Couldn't load :("
+    />
   </div>
 
   <div>
@@ -20,6 +23,4 @@ AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="DotNetFramework.pages
       allowfullscreen="true"
     ></iframe>
   </div>
-
-    <h1>coock</h1>
 </asp:Content>
