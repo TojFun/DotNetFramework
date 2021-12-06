@@ -66,6 +66,7 @@
   <ItemGroup>
     <Content Include="pages\Architecture.aspx" />
     <Content Include="assets\arrow_upward_black_24dp.svg" />
+    <Content Include="pages\ContactUs.aspx" />
     <Content Include="pages\DoesItWorthIt.aspx" />
     <Content Include="pages\Form.aspx" />
     <Content Include="assets\iota-smart_home.jpg" />
@@ -84,6 +85,13 @@
     </Compile>
     <Compile Include="pages\Architecture.aspx.designer.cs">
       <DependentUpon>Architecture.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\DoesItWorthIt.aspx.cs">
       <DependentUpon>DoesItWorthIt.aspx</DependentUpon>

@@ -11,27 +11,27 @@ Inherits="DotNetFramework.pages.Form" %>
     id="MainForm"
     name="MainForm"
   >
-    <div class="form-row">
+    <div class="row">
       <span class="form-column hasLabel">
-        <label for="firstName">שם פרטי: </label>
+        <label for="firstName">שם פרטי:</label>
       </span>
       <span class="form-column hasTextInput">
         <input type="text" id="firstName" name="firstName" />
       </span>
     </div>
 
-    <div class="form-row">
+    <div class="row">
       <span class="form-column hasLabel">
-        <label for="lastName">שם משפחה: </label>
+        <label for="lastName">שם משפחה:</label>
       </span>
       <span class="form-column hasTextInput">
         <input type="text" id="lastName" name="lastName" />
       </span>
     </div>
 
-    <div class="form-row">
+    <div class="row">
       <span class="form-column">
-        <label for="gender">מין: </label>
+        <label for="gender">מין:</label>
       </span>
       <span class="form-column">
         <input type="radio" id="male" name="gender" value="male" />
@@ -52,36 +52,36 @@ Inherits="DotNetFramework.pages.Form" %>
       </span>
     </div>
 
-    <div class="form-row">
+    <div class="row">
       <span class="form-column hasLabel">
-        <label for="phone">מספר טלפון: </label>
+        <label for="phone">מספר טלפון:</label>
       </span>
       <span class="form-column hasTextInput">
         <input type="tel" id="phone" name="phone" />
       </span>
     </div>
 
-    <div class="form-row">
+    <div class="row">
       <span class="form-column hasLabel">
-        <label for="date">תאריך: </label>
+        <label for="date">תאריך:</label>
       </span>
       <span class="form-column hasTextInput">
         <input type="date" id="date" name="date" />
       </span>
     </div>
 
-    <div class="form-row">
+    <div class="row">
       <span class="form-column hasLabel">
-        <label for="password">סיסמה: </label>
+        <label for="password">סיסמה:</label>
       </span>
       <span class="form-column hasTextInput">
         <input type="password" id="password" name="password" />
       </span>
     </div>
 
-    <div class="form-row">
+    <div class="row">
       <span class="form-column hasLabel">
-        <label for="password">תיאור: </label>
+        <label for="description">תיאור:</label>
       </span>
       <span class="form-column hasTextInput">
         <textarea
@@ -93,7 +93,7 @@ Inherits="DotNetFramework.pages.Form" %>
       </span>
     </div>
 
-    <div class="form-row submit-button-container">
+    <div class="row submit-button-container">
       <span class="form-column">
         <input
           class="submit-button"
