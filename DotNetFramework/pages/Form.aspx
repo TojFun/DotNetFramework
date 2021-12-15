@@ -2,6 +2,7 @@
 AutoEventWireup="true" CodeBehind="Form.aspx.cs"
 Inherits="DotNetFramework.pages.Form" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+  <script src="../js/validation.js" defer></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">
   <form
@@ -10,13 +11,14 @@ Inherits="DotNetFramework.pages.Form" %>
     method="post"
     id="MainForm"
     name="MainForm"
+    onsubmit="validate()"
   >
     <div class="row">
       <span class="form-column hasLabel">
         <label for="firstName">שם פרטי:</label>
       </span>
       <span class="form-column hasTextInput">
-        <input type="text" id="firstName" name="firstName" />
+        <input required type="text" id="firstName" name="firstName" />
       </span>
     </div>
 
@@ -25,7 +27,7 @@ Inherits="DotNetFramework.pages.Form" %>
         <label for="lastName">שם משפחה:</label>
       </span>
       <span class="form-column hasTextInput">
-        <input type="text" id="lastName" name="lastName" />
+        <input required type="text" id="lastName" name="lastName" />
       </span>
     </div>
 
@@ -39,11 +41,11 @@ Inherits="DotNetFramework.pages.Form" %>
       </span>
       <span class="form-column">
         <input type="radio" id="female" name="gender" value="female" />
-        <label for="male">נקבה</label>
+        <label for="female">נקבה</label>
       </span>
       <span class="form-column">
-        <input type="radio" id="other" name="gender" value="other" />
-        <label for="male">אחר</label>
+        <input checked type="radio" id="other" name="gender" value="other" />
+        <label for="other">אחר</label>
       </span>
 
       <span class="form-column">
@@ -57,7 +59,7 @@ Inherits="DotNetFramework.pages.Form" %>
         <label for="phone">מספר טלפון:</label>
       </span>
       <span class="form-column hasTextInput">
-        <input type="tel" id="phone" name="phone" />
+        <input required type="tel" id="phone" name="phone" />
       </span>
     </div>
 
@@ -75,7 +77,7 @@ Inherits="DotNetFramework.pages.Form" %>
         <label for="password">סיסמה:</label>
       </span>
       <span class="form-column hasTextInput">
-        <input type="password" id="password" name="password" />
+        <input required type="password" id="password" name="password" />
       </span>
     </div>
 
