@@ -27,6 +27,7 @@
 
 body {
   color: var(--secondary-text);
+  margin:2vh 2vw;
 }
 
 nav {
