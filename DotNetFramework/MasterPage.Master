@@ -10,7 +10,13 @@ CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
 
     <link rel="stylesheet" href="/styles/styles.css" />
 
-    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
   </head>
   <body>
@@ -57,10 +63,14 @@ CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
     </main>
 
     <footer>
-      <div style="display:flex; justify-content:space-between">
+      <div style="display: flex; justify-content: space-between">
         <span class="subtext">
           רוצה לדעת עוד?
-          <a class="link" target="_blank" href="https://en.wikipedia.org/wiki/Home_automation">
+          <a
+            class="link"
+            target="_blank"
+            href="https://en.wikipedia.org/wiki/Home_automation"
+          >
             <strong>לחץ כאן!</strong>
           </a>
         </span>

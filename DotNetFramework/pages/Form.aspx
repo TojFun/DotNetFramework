@@ -2,7 +2,7 @@
 AutoEventWireup="true" CodeBehind="Form.aspx.cs"
 Inherits="DotNetFramework.pages.Form" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-  <script src="../js/validation.js" defer></script>
+  <script src="../javascripts/validation.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">
   <form
@@ -11,14 +11,14 @@ Inherits="DotNetFramework.pages.Form" %>
     method="post"
     id="MainForm"
     name="MainForm"
-    onsubmit="validate()"
+    onsubmit="return validate(this)"
   >
     <div class="row">
       <span class="form-column hasLabel">
         <label for="firstName">שם פרטי:</label>
       </span>
-      <span class="form-column hasTextInput">
-        <input required type="text" id="firstName" name="firstName" />
+      <span class="form-column hasTextInput flex-column">
+        <input type="text" id="firstName" name="firstName" />
       </span>
     </div>
 
@@ -26,8 +26,8 @@ Inherits="DotNetFramework.pages.Form" %>
       <span class="form-column hasLabel">
         <label for="lastName">שם משפחה:</label>
       </span>
-      <span class="form-column hasTextInput">
-        <input required type="text" id="lastName" name="lastName" />
+      <span class="form-column hasTextInput flex-column">
+        <input type="text" id="lastName" name="lastName" />
       </span>
     </div>
 
@@ -58,8 +58,8 @@ Inherits="DotNetFramework.pages.Form" %>
       <span class="form-column hasLabel">
         <label for="phone">מספר טלפון:</label>
       </span>
-      <span class="form-column hasTextInput">
-        <input required type="tel" id="phone" name="phone" />
+      <span class="form-column hasTextInput flex-column">
+        <input type="tel" id="phone" name="phone" />
       </span>
     </div>
 
@@ -67,7 +67,7 @@ Inherits="DotNetFramework.pages.Form" %>
       <span class="form-column hasLabel">
         <label for="date">תאריך:</label>
       </span>
-      <span class="form-column hasTextInput">
+      <span class="form-column hasTextInput flex-column">
         <input type="date" id="date" name="date" />
       </span>
     </div>
@@ -76,8 +76,8 @@ Inherits="DotNetFramework.pages.Form" %>
       <span class="form-column hasLabel">
         <label for="password">סיסמה:</label>
       </span>
-      <span class="form-column hasTextInput">
-        <input required type="password" id="password" name="password" />
+      <span class="form-column hasTextInput flex-column">
+        <input type="password" id="password" name="password" />
       </span>
     </div>
 
@@ -85,7 +85,7 @@ Inherits="DotNetFramework.pages.Form" %>
       <span class="form-column hasLabel">
         <label for="description">תיאור:</label>
       </span>
-      <span class="form-column hasTextInput">
+      <span class="form-column hasTextInput flex-column">
         <textarea
           name="description"
           id="description"
@@ -112,6 +112,7 @@ Inherits="DotNetFramework.pages.Form" %>
           id="reset"
           name="reset"
           value="אתחל"
+          onclick="resetErrors()"
         />
       </span>
     </div>
