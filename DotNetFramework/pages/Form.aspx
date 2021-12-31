@@ -7,12 +7,12 @@ Inherits="DotNetFramework.pages.Form" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">
   <form
     class="login-form"
-    action="/"
     method="post"
     id="MainForm"
     name="MainForm"
-    onsubmit="return validate(this)"
+    onsubmit="return validate()"
   >
+    <!-- action="/" -->
     <div class="row">
       <span class="form-column hasLabel">
         <label for="firstName">שם פרטי:</label>
