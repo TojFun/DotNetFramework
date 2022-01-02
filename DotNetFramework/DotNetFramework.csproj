@@ -73,7 +73,9 @@
     <Content Include="assets\iota-smart_home.jpg" />
     <Content Include="pages\Recommendations.aspx" />
     <Content Include="pages\Options.aspx" />
+    <Content Include="styles\login.css" />
     <Content Include="styles\styles.css" />
+    <Content Include="styles\home.css" />
     <Content Include="Web.config" />
     <Content Include="pages\Home.aspx" />
     <Content Include="pages\WhatCanYouDo.aspx" />
