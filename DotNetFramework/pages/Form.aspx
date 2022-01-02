@@ -1,8 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master"
 AutoEventWireup="true" CodeBehind="Form.aspx.cs"
 Inherits="DotNetFramework.pages.Form" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-  <script src="../javascripts/validation.js"></script>
+  <script src="../javascript/validation.js"></script>
+  <link rel="stylesheet" href="../styles/login.css">
+
+  <title>Login</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">
   <form
@@ -10,7 +14,7 @@ Inherits="DotNetFramework.pages.Form" %>
     method="post"
     id="MainForm"
     name="MainForm"
-    onsubmit="return validate()"
+    onsubmit="return validateForm()"
   >
     <!-- action="/" -->
     <div class="row">
@@ -18,7 +22,12 @@ Inherits="DotNetFramework.pages.Form" %>
         <label for="firstName">שם פרטי:</label>
       </span>
       <span class="form-column hasTextInput flex-column">
-        <input type="text" id="firstName" name="firstName" />
+        <input
+          onchange="validate(this)"
+          type="text"
+          id="firstName"
+          name="firstName"
+        />
       </span>
     </div>
 
@@ -27,7 +36,12 @@ Inherits="DotNetFramework.pages.Form" %>
         <label for="lastName">שם משפחה:</label>
       </span>
       <span class="form-column hasTextInput flex-column">
-        <input type="text" id="lastName" name="lastName" />
+        <input
+          onchange="validate(this)"
+          type="text"
+          id="lastName"
+          name="lastName"
+        />
       </span>
     </div>
 
@@ -59,7 +73,7 @@ Inherits="DotNetFramework.pages.Form" %>
         <label for="phone">מספר טלפון:</label>
       </span>
       <span class="form-column hasTextInput flex-column">
-        <input type="tel" id="phone" name="phone" />
+        <input onchange="validate(this)" type="tel" id="phone" name="phone" />
       </span>
     </div>
 
@@ -68,7 +82,7 @@ Inherits="DotNetFramework.pages.Form" %>
         <label for="date">תאריך:</label>
       </span>
       <span class="form-column hasTextInput flex-column">
-        <input type="date" id="date" name="date" />
+        <input onchange="validate(this)" type="date" id="date" name="date" />
       </span>
     </div>
 
@@ -77,7 +91,26 @@ Inherits="DotNetFramework.pages.Form" %>
         <label for="password">סיסמה:</label>
       </span>
       <span class="form-column hasTextInput flex-column">
-        <input type="password" id="password" name="password" />
+        <input
+          onchange="validate(this)"
+          type="password"
+          id="password"
+          name="password"
+        />
+      </span>
+    </div>
+
+    <div class="row">
+      <span class="form-column hasLabel">
+        <label for="favoriteBrand">מותג מועדף:</label>
+      </span>
+      <span lang="en" dir="ltr" class="form-column hasTextInput flex-column">
+        <select class="favoriteBrand" name="favoriteBrand" id="favoriteBrand">
+          <!--Brands: Google, Alexa (Amazon), Siri (Apple)-->
+          <option value="google">Google</option>
+          <option value="amazon">Alexa (Amazon)</option>
+          <option value="apple">Siri (Apple)</option>
+        </select>
       </span>
     </div>
 

@@ -32,7 +32,7 @@ Inherits="DotNetFramework.pages.ContactUs" %>
       </span>
     </div>
 
-      <div class="row submit-button-container">
+    <div class="row submit-button-container">
       <span class="form-column">
         <input
           class="submit-button"

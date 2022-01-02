@@ -1,0 +1,40 @@
+﻿.login-form {
+  padding: 0 3%;
+}
+
+.form-column {
+  padding: 1%;
+}
+
+.hasLabel {
+  flex: 10%;
+}
+
+.hasTextInput {
+  flex: 90%;
+}
+
+.hasTextInput > input {
+  width: 100%;
+  height: 100%;
+}
+
+.submit-button {
+  width: 100%;
+  height: 100%;
+}
+
+.submit-button-container > .form-column {
+  flex: 50%;
+}
+
+.favoriteBrand {
+  font-family: "Nunito", sans-serif;
+  font-size: 1em;
+}
+
+.error {
+  color: red;
+  font-size: 0.5em;
+  letter-spacing: 0.7ch;
+}

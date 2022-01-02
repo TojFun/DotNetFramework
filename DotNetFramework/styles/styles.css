@@ -1,4 +1,5 @@
-﻿:root {
+﻿/* Setups: */
+:root {
   --primary: #6200ee;
   --primary-dark: #3700b3;
   --secondary: #03dac5;
@@ -8,6 +9,14 @@
   --secondary-light-text: #b1b1b1;
   font-size: 1.5em;
   font-family: "Varela Round", sans-serif;
+}
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+button {
+  font: unset;
+  font-size: 0.7em;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -29,113 +38,42 @@ body {
   margin: 2vh 2vw;
 }
 
-nav {
-  background-color: var(--primary);
-  padding: 2%;
-  border-radius: 20px;
-  font-size: 1.2em;
-}
-
 main {
   padding: 1%;
-}
-
-.link {
-  text-decoration: none;
-  color: var(--secondary-text);
-}
-
-.nav-link {
-  text-decoration: none;
-  color: var(--light-text);
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  text-decoration: none;
-  color: var(--secondary-light-text);
-}
-
-.nav-link-container {
-  text-align: center;
-}
-
-.title {
-  color: var(--primary-text);
-}
-
-.link:hover,
-.link:focus {
-  color: var(--primary-text);
-  outline: none;
-}
-
-.align-center {
-  text-align: center;
-}
-
-.subtext {
-  display: inline-block;
-}
-
-.youtube-video {
-  aspect-ratio: 560 / 315;
-  width: 100%;
-}
-
-.image {
-  width: 100%;
 }
 
 footer {
   padding: 2%;
 }
 
-.nav-table {
-  width: 100%;
+/* General: */
+.align-center {
+  text-align: center;
 }
 
-.login-form {
-  padding: 0 3%;
+.link {
+  text-decoration: none;
+  color: var(--secondary-text);
+}
+.link:hover,
+.link:focus {
+  color: var(--primary-text);
+  outline: none;
+}
+
+.title {
+  color: var(--primary-text);
+}
+
+.subtext {
+  display: inline-block;
 }
 
 .row {
   display: flex;
 }
 
-.form-column {
-  padding: 1%;
-}
-
 .flex-column {
   display: flex;
   flex-direction: column;
-}
-
-.hasLabel {
-  flex: 10%;
-}
-
-.hasTextInput {
-  flex: 90%;
-}
-
-.hasTextInput > input {
-  width: 100%;
-  height: 100%;
-}
-
-.submit-button {
-  width: 100%;
-  height: 100%;
-}
-
-.submit-button-container > .form-column {
-  flex: 50%;
-}
-
-.error {
-  color: red;
-  font-size: 0.5em;
-  letter-spacing: 0.7ch;
 }

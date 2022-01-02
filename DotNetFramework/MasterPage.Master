@@ -8,8 +8,10 @@ CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="/styles/styles.css" />
 
+    <!-- Varela Round Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,43 +19,27 @@ CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
       rel="stylesheet"
     />
 
+    <!-- Nunito Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
   </head>
   <body>
     <header id="header">
-      <nav>
-        <table class="nav-table">
-          <tbody>
-            <tr>
-              <td class="nav-link-container">
-                <a href="./Home.aspx" class="nav-link">בית</a>
-              </td>
-              <td class="nav-link-container">
-                <a href="./DoesItWorthIt.aspx" class="nav-link">
-                  האם זה שווה את זה
-                </a>
-              </td>
-              <td class="nav-link-container">
-                <a href="./WhatCanYouDo.aspx" class="nav-link">השימושים</a>
-              </td>
-              <td class="nav-link-container">
-                <a href="./Options.aspx" class="nav-link">האפשרויות</a>
-              </td>
-              <td class="nav-link-container">
-                <a href="./Recommendations.aspx" class="nav-link">המלצות</a>
-              </td>
-              <td class="nav-link-container">
-                <a href="./WhereToBegin.aspx" class="nav-link">איך מתחילים</a>
-              </td>
-              <td class="nav-link-container">
-                <a href="./Architecture.aspx" class="nav-link">ארכיטקטורה</a>
-              </td>
-              <td class="nav-link-container">
-                <a href="./Form.aspx" class="nav-link">היכנס</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <nav class="nav">
+        <a href="./Home.aspx" class="nav-link">בית</a>
+        <a href="./DoesItWorthIt.aspx" class="nav-link">האם זה שווה את זה</a>
+        <a href="./WhatCanYouDo.aspx" class="nav-link">השימושים</a>
+        <a href="./Options.aspx" class="nav-link">האפשרויות</a>
+        <a href="./Recommendations.aspx" class="nav-link">המלצות</a>
+        <a href="./WhereToBegin.aspx" class="nav-link">איך מתחילים</a>
+        <a href="./Architecture.aspx" class="nav-link">ארכיטקטורה</a>
+        <a href="./Form.aspx" class="nav-link">היכנס</a>
       </nav>
     </header>
 
@@ -64,8 +50,8 @@ CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
 
     <footer>
       <div style="display: flex; justify-content: space-between">
-        <span class="subtext">
-          רוצה לדעת עוד?
+        <span class="subtext"
+          >רוצה לדעת עוד?
           <a
             class="link"
             target="_blank"
