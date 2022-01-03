@@ -28,8 +28,11 @@
   flex: 50%;
 }
 
-.favoriteBrand {
+.en {
   font-family: "Nunito", sans-serif;
+}
+
+.favoriteBrand {
   font-size: 1em;
 }
 

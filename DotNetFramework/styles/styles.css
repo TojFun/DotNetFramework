@@ -11,6 +11,11 @@
   font-family: "Varela Round", sans-serif;
 }
 
+input {
+  font: inherit;
+  font-size: 0.7em;
+}
+
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
@@ -61,6 +66,11 @@ footer {
   outline: none;
 }
 
+.required:after {
+  content: " *";
+  color: red;
+}
+
 .title {
   color: var(--primary-text);
 }
@@ -80,21 +90,21 @@ footer {
 
 /* Navigation:*/
 .nav {
-    background-color: var(--primary);
-    padding: 2%;
-    border-radius: 20px;
-    font-size: 1.2em;
-    display: flex;
-    justify-content: space-around;
+  background-color: var(--primary);
+  padding: 2%;
+  border-radius: 20px;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: space-around;
 }
 
-    .nav a {
-        text-decoration: none;
-        color: var(--light-text);
-    }
+.nav a {
+  text-decoration: none;
+  color: var(--light-text);
+}
 
-        .nav a:hover,
-        .nav a:focus {
-            text-decoration: none;
-            color: var(--secondary-light-text);
-        }
+.nav a:hover,
+.nav a:focus {
+  text-decoration: none;
+  color: var(--secondary-light-text);
+}

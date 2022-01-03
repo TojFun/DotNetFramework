@@ -28,6 +28,7 @@ const validateForm = () => {
 
   isValid = validateName(firstName) && isValid;
   isValid = validateName(lastName) && isValid;
+  isValid = validateEmail() && isValid;
   isValid = validatePhone() && isValid;
   isValid = valiDate() && isValid;
   isValid = validatePassword() && isValid;
@@ -47,6 +48,8 @@ const validate = (element) => {
       return validateName(element);
     case "lastName":
       return validateName(element);
+    case "email":
+      return validateEmail();
     case "phone":
       return validatePhone();
     case "date":
@@ -158,6 +161,32 @@ const validatePassword = () => {
       password,
       !passwordValue.match(/[!@#$%^&*]/),
       "הסיסמה חייבת להכיל לפחות סימן מיוחד אחד"
+    )
+  );
+};
+
+const validateEmail = () => {
+  const email = document.getElementById("email");
+  if (!email) return true;
+
+  const emailValue = email.value;
+  const atSigns = emailValue.match(/@/g);
+
+  return (
+    generateError(
+      email,
+      emailValue.length < 5,
+      `בכתובת דוא"ל חייבים להיות לפחות 5 תווים.`
+    ) &&
+    generateError(
+      email,
+      atSigns == null || atSigns.length !== 1,
+      `בכתובת דוא"ל חייב להיות @ אחד בדיוק.`
+    ) &&
+    generateError(
+      email,
+      emailValue.match(/\./g) == null,
+      `בכתובת דוא"ל חייבת להיות לפחות . אחת.`
     )
   );
 };
