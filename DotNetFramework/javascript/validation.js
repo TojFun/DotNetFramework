@@ -39,8 +39,6 @@ const validateForm = () => {
 const validate = (element) => {
   const { id } = element;
 
-  console.log(id);
-
   resetErrors(element);
 
   switch (id) {
@@ -72,30 +70,44 @@ const validateName = (name) => {
   );
 };
 
+// validate phone-number:
+// - must not be empty
+// - must be a valid phone number - 10 digits, starts with 05, and contains only digits and dashes
+
 const validatePhone = () => {
   const phone = document.getElementById("phone");
   if (!phone) return true;
 
-  const phoneNumber = phone.value;
+  const phoneNumber = phone.value.replace(/-/g, "");
 
-  return (
+  const isValid =
     generateError(
       phone,
       phoneNumber.length !== 10,
-      "מספר טלפון חייב לכלול 10 ספרות"
+      "מספר טלפון נייד חייב לכלול 10 ספרות"
     ) &&
     generateError(
       phone,
-      isNaN(parseInt(phoneNumber)),
-      "מספר טלפון חייב לכלול ספרות בלבד"
+      phoneNumber.match(/([^0-9])/),
+      "מספר טלפון נייד חייב לכלול ספרות ומקפים בלבד"
     ) &&
     generateError(
       phone,
-      phoneNumber.charAt(0) !== "0" && phoneNumber.charAt(1) !== "5",
-      "מספר טלפון חייב להתחיל ב 05"
-    )
-  );
+      phoneNumber.charAt(0) !== "0" || phoneNumber.charAt(1) !== "5",
+      "מספר טלפון נייד חייב להתחיל ב 05"
+    );
+
+  if (!isValid) return false;
+
+  phone.value = insert(insert(phoneNumber, 3, "-"), 7, "-");
+
+  return true;
 };
+// insert to string
+
+function insert(str, index, value) {
+  return str.substr(0, index) + value + str.substr(index);
+}
 
 // validate date:
 // - must not be in the past
@@ -180,8 +192,11 @@ const validateEmail = () => {
     ) &&
     generateError(
       email,
-      atSigns == null || atSigns.length !== 1,
-      `בכתובת דוא"ל חייב להיות @ אחד בדיוק.`
+      atSigns == null ||
+        atSigns.length !== 1 ||
+        emailValue.indexOf("@") === 0 ||
+        emailValue.indexOf("@") === emailValue.length - 1,
+      `בכתובת דוא"ל חייב להיות @ אחד בדיוק שלא יכול להיות בהתחלה או בסוף.`
     ) &&
     generateError(
       email,

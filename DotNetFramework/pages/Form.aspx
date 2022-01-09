@@ -16,6 +16,7 @@ Inherits="DotNetFramework.pages.Form" %>
     id="MainForm"
     name="MainForm"
     onsubmit="return validateForm()"
+    onreset="resetErrors()"
   >
     <!-- action="/" -->
     <div class="row">
@@ -45,6 +46,9 @@ Inherits="DotNetFramework.pages.Form" %>
         />
       </span>
     </div>
+      <div id="oo">
+
+      </div>
 
     <div class="row">
       <span class="form-column hasLabel">
@@ -88,7 +92,7 @@ Inherits="DotNetFramework.pages.Form" %>
 
     <div class="row">
       <span class="form-column hasLabel">
-        <label for="phone" class="required">מספר טלפון:</label>
+        <label for="phone" class="required">מספר טלפון נייד:</label>
       </span>
       <span class="form-column hasTextInput flex-column">
         <input onchange="validate(this)" type="tel" id="phone" name="phone" />
@@ -141,12 +145,7 @@ Inherits="DotNetFramework.pages.Form" %>
         <label for="description">תיאור:</label>
       </span>
       <span class="form-column hasTextInput flex-column">
-        <textarea
-          name="description"
-          id="description"
-          cols="120"
-          rows="5"
-        ></textarea>
+        <textarea name="description" id="description" rows="5"></textarea>
       </span>
     </div>
 
@@ -167,7 +166,6 @@ Inherits="DotNetFramework.pages.Form" %>
           id="reset"
           name="reset"
           value="אתחל"
-          onclick="resetErrors()"
         />
       </span>
     </div>

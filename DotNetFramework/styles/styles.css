@@ -11,9 +11,11 @@
   font-family: "Varela Round", sans-serif;
 }
 
-input {
+input,
+textarea {
   font: inherit;
   font-size: 0.7em;
+  resize: none;
 }
 
 input[type="button"],
@@ -107,4 +109,10 @@ footer {
 .nav a:focus {
   text-decoration: none;
   color: var(--secondary-light-text);
+}
+
+@media screen and (max-width: 1200px) {
+  .nav {
+    font-size: 0.7em;
+  }
 }
