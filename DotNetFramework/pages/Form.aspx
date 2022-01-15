@@ -29,6 +29,7 @@ Inherits="DotNetFramework.pages.Form" %>
           type="text"
           id="firstName"
           name="firstName"
+          class="form-input"
         />
       </span>
     </div>
@@ -43,12 +44,11 @@ Inherits="DotNetFramework.pages.Form" %>
           type="text"
           id="lastName"
           name="lastName"
+          class="form-input"
         />
       </span>
     </div>
-      <div id="oo">
-
-      </div>
+    <div id="oo"></div>
 
     <div class="row">
       <span class="form-column hasLabel">
@@ -58,7 +58,7 @@ Inherits="DotNetFramework.pages.Form" %>
         <input
           lang="en"
           dir="ltr"
-          class="en"
+          class="en form-input"
           onchange="validate(this)"
           type="text"
           id="email"
@@ -95,7 +95,13 @@ Inherits="DotNetFramework.pages.Form" %>
         <label for="phone" class="required">מספר טלפון נייד:</label>
       </span>
       <span class="form-column hasTextInput flex-column">
-        <input onchange="validate(this)" type="tel" id="phone" name="phone" />
+        <input
+          onchange="validate(this)"
+          type="tel"
+          id="phone"
+          name="phone"
+          class="form-input"
+        />
       </span>
     </div>
 
@@ -104,7 +110,13 @@ Inherits="DotNetFramework.pages.Form" %>
         <label for="date" class="required">תאריך:</label>
       </span>
       <span class="form-column hasTextInput flex-column">
-        <input onchange="validate(this)" type="date" id="date" name="date" />
+        <input
+          onchange="validate(this)"
+          type="date"
+          id="date"
+          name="date"
+          class="form-input"
+        />
       </span>
     </div>
 
@@ -118,6 +130,7 @@ Inherits="DotNetFramework.pages.Form" %>
           type="password"
           id="password"
           name="password"
+          class="form-input"
         />
       </span>
     </div>
@@ -145,7 +158,12 @@ Inherits="DotNetFramework.pages.Form" %>
         <label for="description">תיאור:</label>
       </span>
       <span class="form-column hasTextInput flex-column">
-        <textarea name="description" id="description" rows="5"></textarea>
+        <textarea
+          name="description"
+          id="description"
+          rows="5"
+          class="form-input"
+        ></textarea>
       </span>
     </div>
 

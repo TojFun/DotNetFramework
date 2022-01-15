@@ -1,5 +1,9 @@
 ﻿"use strict";
-
+/**
+ * @param  {HTMLElement} element
+ * @param  {boolean} condition
+ * @param  {string} message
+ */
 const generateError = (element, condition, message) => {
   if (!(condition && element)) return true;
 
@@ -12,19 +16,35 @@ const generateError = (element, condition, message) => {
   return false;
 };
 
+/**
+ * @param  {HTMLElement} element
+ */
 const resetErrors = (element) => {
   const from = element?.parentElement ?? document.body;
 
   from.querySelectorAll(".error")?.forEach((error) => error.remove());
 };
 
-const validateForm = () => {
-  resetErrors();
+/**
+ * @param  {HTMLInputElement} element
+ */
+const reset = (element) => {
+  const from = element?.parentElement ?? document.body;
 
+  resetErrors(element);
+
+  from.querySelectorAll(".form-input")?.forEach((input) => {
+    console.log(input);
+    input.value = "";
+  });
+};
+
+const validateForm = () => {
+  reset(); // reset all errors
+
+  let isValid = true; // assume all fields are valid
   const firstName = document.getElementById("firstName");
   const lastName = document.getElementById("lastName");
-
-  let isValid = true;
 
   isValid = validateName(firstName) && isValid;
   isValid = validateName(lastName) && isValid;
@@ -36,6 +56,9 @@ const validateForm = () => {
   return isValid;
 };
 
+/**
+ * @param  {HTMLInputElement} element
+ */
 const validate = (element) => {
   const { id } = element;
 
@@ -58,15 +81,20 @@ const validate = (element) => {
       return true;
   }
 };
-
+/**
+ * @param  {HTMLInputElement} name
+ */
 const validateName = (name) => {
   if (!name) return true;
   const nameValue = name.value;
 
-  return generateError(
-    name,
-    nameValue.length < 1,
-    "שדה זה אינו יכול להיות ריק"
+  return (
+    generateError(name, nameValue.length < 1, "שדה זה אינו יכול להיות ריק") &&
+    generateError(
+      name,
+      nameValue.match(/[^a-zA-Zא-ת]/).length !== 0,
+      "שם חייב לכלול אותיות בלבד"
+    )
   );
 };
 
