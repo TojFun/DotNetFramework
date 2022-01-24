@@ -10,6 +10,7 @@ Inherits="DotNetFramework.pages.Form" %>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">
+  <!-- TODO: Action -->
   <form
     class="login-form"
     method="post"
@@ -18,7 +19,6 @@ Inherits="DotNetFramework.pages.Form" %>
     onsubmit="return validateForm()"
     onreset="resetErrors()"
   >
-    <!-- action="/" -->
     <div class="row">
       <span class="form-column hasLabel">
         <label for="firstName" class="required">שם פרטי:</label>
@@ -48,7 +48,6 @@ Inherits="DotNetFramework.pages.Form" %>
         />
       </span>
     </div>
-    <div id="oo"></div>
 
     <div class="row">
       <span class="form-column hasLabel">
