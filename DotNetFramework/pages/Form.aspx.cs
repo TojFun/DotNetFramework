@@ -11,6 +11,10 @@ namespace DotNetFramework.pages
   {
     protected void Page_Load(object sender, EventArgs e)
     {
+      if (Request.Form["regSubmit"] == null) return;
+
+      string dbFileName = "Database.accdb";
+
 
     }
   }
