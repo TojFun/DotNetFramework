@@ -70,7 +70,7 @@
     <Content Include="assets\arrow_upward_black_24dp.svg" />
     <Content Include="pages\ContactUs.aspx" />
     <Content Include="pages\DoesItWorthIt.aspx" />
-    <Content Include="pages\Form.aspx" />
+    <Content Include="pages\Registration.aspx" />
     <Content Include="assets\iota-smart_home.jpg" />
     <Content Include="pages\Recommendations.aspx" />
     <Content Include="pages\Options.aspx" />
@@ -104,12 +104,12 @@
     <Compile Include="pages\DoesItWorthIt.aspx.designer.cs">
       <DependentUpon>DoesItWorthIt.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\Form.aspx.cs">
-      <DependentUpon>Form.aspx</DependentUpon>
+    <Compile Include="pages\Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\Form.aspx.designer.cs">
-      <DependentUpon>Form.aspx</DependentUpon>
+    <Compile Include="pages\Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
@@ -169,9 +169,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="db_services\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

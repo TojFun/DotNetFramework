@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master"
-AutoEventWireup="true" CodeBehind="Form.aspx.cs"
-Inherits="DotNetFramework.pages.Form" %>
+AutoEventWireup="true" CodeBehind="Registration.aspx.cs"
+Inherits="DotNetFramework.pages.Registration" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
   <script src="../javascript/validation.js"></script>
@@ -18,6 +18,7 @@ Inherits="DotNetFramework.pages.Form" %>
     name="MainForm"
     onsubmit="return validateForm()"
     onreset="resetErrors()"
+    action="Registration.aspx"
   >
     <div class="row">
       <span class="form-column hasLabel">
@@ -25,7 +26,7 @@ Inherits="DotNetFramework.pages.Form" %>
       </span>
       <span class="form-column hasTextInput flex-column">
         <input
-          onchange="validate(this)"
+          onkeyup="validate(this)"
           type="text"
           id="firstName"
           name="firstName"
@@ -40,7 +41,7 @@ Inherits="DotNetFramework.pages.Form" %>
       </span>
       <span class="form-column hasTextInput flex-column">
         <input
-          onchange="validate(this)"
+          onkeyup="validate(this)"
           type="text"
           id="lastName"
           name="lastName"
@@ -58,7 +59,7 @@ Inherits="DotNetFramework.pages.Form" %>
           lang="en"
           dir="ltr"
           class="en form-input"
-          onchange="validate(this)"
+          onkeyup="validate(this)"
           type="text"
           id="email"
           name="email"
@@ -95,7 +96,7 @@ Inherits="DotNetFramework.pages.Form" %>
       </span>
       <span class="form-column hasTextInput flex-column">
         <input
-          onchange="validate(this)"
+          onkeyup="validate(this)"
           type="tel"
           id="phone"
           name="phone"
@@ -106,14 +107,15 @@ Inherits="DotNetFramework.pages.Form" %>
 
     <div class="row">
       <span class="form-column hasLabel">
-        <label for="date" class="required">תאריך:</label>
+        <label for="dateTime" class="required">תאריך יעד:</label>
       </span>
       <span class="form-column hasTextInput flex-column">
         <input
+          onkeyup="validate(this)"
           onchange="validate(this)"
           type="date"
-          id="date"
-          name="date"
+          id="dateTime"
+          name="dateTime"
           class="form-input"
         />
       </span>
@@ -125,7 +127,7 @@ Inherits="DotNetFramework.pages.Form" %>
       </span>
       <span class="form-column hasTextInput flex-column">
         <input
-          onchange="validate(this)"
+          onkeyup="validate(this)"
           type="password"
           id="password"
           name="password"
@@ -171,8 +173,8 @@ Inherits="DotNetFramework.pages.Form" %>
         <input
           class="submit-button"
           type="submit"
-          id="submit"
-          name="submit"
+          id="registrationSubmitButton"
+          name="registrationSubmitButton"
           value="הכנס"
         />
       </span>

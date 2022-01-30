@@ -19,7 +19,7 @@ public class AdoHelper
   /// </summary>
   public static OleDbConnection ConnectToDb(string fileName)
   {
-    string path = HttpContext.Current.Server.MapPath("App_Data/") + fileName; //מיקום מסד בפורוייקט
+    string path = HttpContext.Current.Server.MapPath("../App_Data/") + fileName; //מיקום מסד בפורוייקט
     string connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data source=" + path; //נתוני ההתחברות הכוללים מיקום וסוג המסד
     return new OleDbConnection(connString);
   }
@@ -99,7 +99,6 @@ public class AdoHelper
       printStr += "<tr>";
       foreach (object myItemArray in row.ItemArray)
       {
-
         printStr += "<td>" + myItemArray.ToString() + "</td>";
       }
       printStr += "</tr>";

@@ -40,7 +40,7 @@ const reset = (element) => {
 };
 
 const validateForm = () => {
-  reset(); // reset all errors
+  resetErrors(); // reset all errors
 
   let isValid = true; // assume all fields are valid
   const firstName = document.getElementById("firstName");
@@ -73,7 +73,7 @@ const validate = (element) => {
       return validateEmail();
     case "phone":
       return validatePhone();
-    case "date":
+    case "dateTime":
       return valiDate();
     case "password":
       return validatePassword();
@@ -86,13 +86,15 @@ const validate = (element) => {
  */
 const validateName = (name) => {
   if (!name) return true;
+  name.value = name.value.replace(/\s/g, "");
   const nameValue = name.value;
 
   return (
     generateError(name, nameValue.length < 1, "שדה זה אינו יכול להיות ריק") &&
     generateError(
       name,
-      nameValue.match(/[^a-zA-Zא-ת]/).length !== 0,
+      nameValue.match(/[^a-zA-Zא-ת]/)?.length &&
+        nameValue.match(/[^a-zA-Zא-ת]/).length !== 0,
       "שם חייב לכלול אותיות בלבד"
     )
   );
@@ -127,14 +129,19 @@ const validatePhone = () => {
 
   if (!isValid) return false;
 
-  phone.value = insert(insert(phoneNumber, 3, "-"), 7, "-");
+  phone.value = insert(insert(phoneNumber.slice(0, 10), 3, "-"), 7, "-");
 
   return true;
 };
 // insert to string
-
+/**
+ * @param  {string} str
+ * @param  {number} index
+ * @param  {string} value
+ * @return {string}
+ */
 function insert(str, index, value) {
-  return str.substr(0, index) + value + str.substr(index);
+  return str.slice(0, index) + value + str.slice(index);
 }
 
 // validate date:
@@ -142,7 +149,7 @@ function insert(str, index, value) {
 // - must not be empty and a valid date
 // - must be in the format dd/mm/yyyy
 const valiDate = () => {
-  const date = document.getElementById("date");
+  const date = document.getElementById("dateTime");
   if (!date) return true;
 
   const dateValue = new Date(date.value);
@@ -209,6 +216,7 @@ const validateEmail = () => {
   const email = document.getElementById("email");
   if (!email) return true;
 
+  email.value = email.value.replace(/\s/g, "");
   const emailValue = email.value;
   const atSigns = emailValue.match(/@/g);
 
