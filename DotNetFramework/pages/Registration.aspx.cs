@@ -31,10 +31,8 @@ namespace DotNetFramework.pages
       }
 
       string insert =
-$@"INSERT INTO {dbTableName} (firstName, lastName, email, password, phone,
-gender, isAdult, dateTime, favoriteBrand, description) 
-VALUES ('{firstName}', '{lastName}', '{email}', '{gender}', '{dateTime}','{favoriteBrand}',
-'{phone}', '{password}', '{isAdult}', '{description}')";
+$@"INSERT INTO {dbTableName} (firstName, lastName, email, password, phone, gender, isAdult, dateTime, favoriteBrand, description) 
+VALUES ('{firstName}', '{lastName}', '{email}', '{password}', '{phone}','{gender}', '{isAdult}', '{dateTime}', '{favoriteBrand}', '{description}')";
 
       AdoHelper.DoQuery(dbFileName, insert);
 
