@@ -18,11 +18,12 @@ namespace DotNetFramework.pages
 
       string firstName = Request.Form["firstName"], lastName = Request.Form["lastName"],
        email = Request.Form["email"], gender = Request.Form["gender"],
-       isAdult = Request.Form["isAdult"], phone = Request.Form["phone"],
-       dateTime = Request.Form["dateTime"], password = Request.Form["password"],
-       favoriteBrand = Request.Form["favoriteBrand"], description = Request.Form["description"];
+       phone = Request.Form["phone"],
+       dueDate = Request.Form["dueDate"], pswrd = Request.Form["pswrd"],
+       favoriteBrand = Request.Form["favoriteBrand"], dscrptn = Request.Form["dscrptn"];
 
-      Session["username"] = email;
+      bool isAdult = Request.Form["isAdult"] == "isAdult";
+
 
       if (AdoHelper.IsExist(dbFileName, $"SELECT * FROM {dbTableName} WHERE email = '{email}'"))
       {
@@ -30,13 +31,39 @@ namespace DotNetFramework.pages
         return;
       }
 
+      Session["username"] = email;
+
       string insert =
-$@"INSERT INTO {dbTableName} (firstName, lastName, email, password, phone, gender, isAdult, dateTime, favoriteBrand, description) 
-VALUES ('{firstName}', '{lastName}', '{email}', '{password}', '{phone}','{gender}', '{isAdult}', '{dateTime}', '{favoriteBrand}', '{description}')";
+$@"INSERT INTO
+  { dbTableName } (
+    firstName,
+    lastName,
+    email,
+    pswrd,
+    phone,
+    gender,
+    isAdult,
+    dueDate,
+    favoriteBrand,
+    dscrptn
+  )
+VALUES
+  (
+    '{firstName}',
+    '{lastName}',
+    '{email}',
+    '{pswrd}',
+    '{phone}',
+    '{gender}',
+    { isAdult },
+    '{dueDate} 00:00:00',
+    '{favoriteBrand}',
+    '{dscrptn}'
+  )";
 
       AdoHelper.DoQuery(dbFileName, insert);
 
-      Response.Redirect("HomePage.aspx");
+      Response.Redirect("Home.aspx");
     }
   }
 }

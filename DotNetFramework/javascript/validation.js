@@ -73,9 +73,9 @@ const validate = (element) => {
       return validateEmail();
     case "phone":
       return validatePhone();
-    case "dateTime":
+    case "dueDate":
       return valiDate();
-    case "password":
+    case "pswrd":
       return validatePassword();
     default:
       return true;
@@ -149,7 +149,7 @@ function insert(str, index, value) {
 // - must not be empty and a valid date
 // - must be in the format dd/mm/yyyy
 const valiDate = () => {
-  const date = document.getElementById("dateTime");
+  const date = document.getElementById("dueDate");
   if (!date) return true;
 
   const dateValue = new Date(date.value);
@@ -173,7 +173,7 @@ const valiDate = () => {
 //  - must contain at least one special character
 // - must not contain spaces
 const validatePassword = () => {
-  const password = document.getElementById("password");
+  const password = document.getElementById("pswrd");
   if (!password) return true;
 
   const passwordValue = password.value;

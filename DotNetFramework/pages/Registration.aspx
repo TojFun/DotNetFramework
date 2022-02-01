@@ -107,15 +107,15 @@ Inherits="DotNetFramework.pages.Registration" %>
 
     <div class="row">
       <span class="form-column hasLabel">
-        <label for="dateTime" class="required">תאריך יעד:</label>
+        <label for="dueDate" class="required">תאריך יעד:</label>
       </span>
       <span class="form-column hasTextInput flex-column">
         <input
           onkeyup="validate(this)"
           onchange="validate(this)"
           type="date"
-          id="dateTime"
-          name="dateTime"
+          id="dueDate"
+          name="dueDate"
           class="form-input"
         />
       </span>
@@ -123,14 +123,14 @@ Inherits="DotNetFramework.pages.Registration" %>
 
     <div class="row">
       <span class="form-column hasLabel">
-        <label for="password" class="required">סיסמה:</label>
+        <label for="pswrd" class="required">סיסמה:</label>
       </span>
       <span class="form-column hasTextInput flex-column">
         <input
           onkeyup="validate(this)"
           type="password"
-          id="password"
-          name="password"
+          id="pswrd"
+          name="pswrd"
           class="form-input"
         />
       </span>
@@ -156,12 +156,12 @@ Inherits="DotNetFramework.pages.Registration" %>
 
     <div class="row">
       <span class="form-column hasLabel">
-        <label for="description">תיאור:</label>
+        <label for="dscrptn">תיאור:</label>
       </span>
       <span class="form-column hasTextInput flex-column">
         <textarea
-          name="description"
-          id="description"
+          name="dscrptn"
+          id="dscrptn"
           rows="5"
           class="form-input"
         ></textarea>

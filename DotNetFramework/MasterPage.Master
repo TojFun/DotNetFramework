@@ -39,7 +39,9 @@ CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
         <a href="./Recommendations.aspx" class="nav-link">המלצות</a>
         <a href="./WhereToBegin.aspx" class="nav-link">איך מתחילים</a>
         <a href="./Architecture.aspx" class="nav-link">ארכיטקטורה</a>
+        <%if (Session["username"])%>
         <a href="./Form.aspx" class="nav-link">היכנס</a>
+        <%%>
       </nav>
     </header>
 
@@ -50,8 +52,8 @@ CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
 
     <footer>
       <div style="display: flex; justify-content: space-between">
-        <span class="subtext"
-          >רוצה לדעת עוד?
+        <span class="subtext">
+          רוצה לדעת עוד?
           <a
             class="link"
             target="_blank"
