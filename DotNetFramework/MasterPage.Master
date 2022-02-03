@@ -27,23 +27,41 @@ CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
       rel="stylesheet"
     />
 
+    <script>
+      const logout = () => {
+        if (confirm("Are you sure you want to logout?"))
+          window.location.href = "/pages/Logout.aspx";
+      };
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
   </head>
   <body>
     <header id="header">
       <nav class="nav">
-        <a href="./Home.aspx" class="nav-link">בית</a>
-        <a href="./DoesItWorthIt.aspx" class="nav-link">האם זה שווה את זה</a>
-        <a href="./WhatCanYouDo.aspx" class="nav-link">השימושים</a>
-        <a href="./Options.aspx" class="nav-link">האפשרויות</a>
-        <a href="./Recommendations.aspx" class="nav-link">המלצות</a>
-        <a href="./WhereToBegin.aspx" class="nav-link">איך מתחילים</a>
-        <a href="./Architecture.aspx" class="nav-link">ארכיטקטורה</a>
-        <%if (Session["username"] == null)
-            {%>
-        <a href="./Form.aspx" class="nav-link">היכנס</a>
-        <%}%>
+        <a href="./Home.aspx">בית</a>
+        <a href="./DoesItWorthIt.aspx">האם זה שווה את זה</a>
+        <a href="./WhatCanYouDo.aspx">השימושים</a>
+        <a href="./Options.aspx">האפשרויות</a>
+        <a href="./Recommendations.aspx">המלצות</a>
+        <a href="./WhereToBegin.aspx">איך מתחילים</a>
+        <a href="./Architecture.aspx">ארכיטקטורה</a>
+        <%if (Session["username"] == "אורח") {%>
+        <a href="./Registration.aspx">הירשם</a>
+        <a href="./Login.aspx">היכנס</a>
+        <%} %>
       </nav>
+
+      <div>
+        שלום, <strong><%Response.Write(Session["username"]);%></strong>. <%if
+        (Session["username"] != "אורח") {%>
+        <a onclick="logout()" class="link">התנתק.</a>
+        <%} %>
+      </div>
+
+      <div>
+        ישנם <%Response.Write(Application["counter"]);%> משתמשים פעילים באתר
+        כרגע.
+      </div>
     </header>
 
     <main>
@@ -53,8 +71,8 @@ CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
 
     <footer>
       <div style="display: flex; justify-content: space-between">
-        <span class="subtext">
-          רוצה לדעת עוד?
+        <span class="subtext"
+          >רוצה לדעת עוד?
           <a
             class="link"
             target="_blank"

@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="DotNetFramework.pages.Login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../javascript/validation.js"></script>
+  <link rel="stylesheet" href="../styles/login.css" />
+
+    <title>Login</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">
     <form
@@ -48,8 +52,8 @@
         <input
           class="submit-button"
           type="submit"
-          id="registrationSubmitButton"
-          name="registrationSubmitButton"
+          id="loginSubmitButton"
+          name="loginSubmitButton"
           value="הכנס"
         />
       </span>

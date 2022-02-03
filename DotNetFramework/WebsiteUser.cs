@@ -5,13 +5,13 @@ using System.Web;
 
 namespace DotNetFramework
 {
-  public class User
+  public class WebsiteUser
   {
     private string firstName, lastName, email, gender, phone, favoriteBrand, description;
     private bool isAdult;
     private DateTime dueDate;
 
-    public User(string firstName, string lastName, string email, string gender, string phone, string favoriteBrand, string description, bool isAdult, string dueDate)
+    public WebsiteUser(string firstName, string lastName, string email, string gender, string phone, string favoriteBrand, string description, bool isAdult, string dueDate)
     {
       this.firstName = firstName;
       this.lastName = lastName;
@@ -26,9 +26,9 @@ namespace DotNetFramework
 
     public string GetName() => firstName + " " + lastName;
 
-    public static User Guest()
+    public static WebsiteUser Guest()
     {
-      return new User("Guest", "", "", "", "", "", "", false, "");
+      return new WebsiteUser("Guest", "", "", "", "", "", "", false, "");
     }
   }
 }

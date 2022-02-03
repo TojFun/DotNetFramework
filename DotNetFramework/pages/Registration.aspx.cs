@@ -11,7 +11,6 @@ namespace DotNetFramework.pages
   {
     protected void Page_Load(object sender, EventArgs e)
     {
-      System.Console.WriteLine("Hello World!");
       if (Request.Form["registrationSubmitButton"] == null) return;
 
       string dbFileName = "Database.accdb", dbTableName = "table_users";
@@ -25,9 +24,9 @@ namespace DotNetFramework.pages
       bool isAdult = Request.Form["isAdult"] == "isAdult";
 
 
-      if (AdoHelper.IsExist(dbFileName, $"SELECT * FROM {dbTableName} WHERE email = '{email}'"))
+      if (AdoHelper.DoesExist(dbFileName, $"SELECT * FROM {dbTableName} WHERE email = '{email}'"))
       {
-        Response.Redirect("~/pages/Form.aspx?code=409");
+        Response.Redirect("~/pages/Registration.aspx?code=409");
         return;
       }
 
@@ -63,6 +62,8 @@ VALUES
 
       AdoHelper.DoQuery(dbFileName, insert);
 
+                
+        Session["username"] = firstName + " " + lastName;
       Response.Redirect("Home.aspx");
     }
   }

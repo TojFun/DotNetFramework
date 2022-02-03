@@ -58,7 +58,7 @@ public class AdoHelper
   /// הפעולה מקבלת שם קובץ ושאילתא לחיפוש ערך.
   /// הפעולה מחזירה אמת אם הערך נמצא ושקר אחרת
   /// </summary>
-  public static bool IsExist(string fileName, string sql)
+  public static bool DoesExist(string fileName, string sql)
   {
     OleDbConnection conn = ConnectToDb(fileName);
     conn.Open();
