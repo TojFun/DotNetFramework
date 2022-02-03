@@ -16,7 +16,7 @@ Inherits="DotNetFramework.pages.Registration" %>
     method="post"
     id="MainForm"
     name="MainForm"
-    onsubmit="return validateForm()"
+    onsubmit="return validateRegistration()"
     onreset="resetErrors()"
     action="Registration.aspx"
   >

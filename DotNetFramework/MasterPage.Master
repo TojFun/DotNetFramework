@@ -39,9 +39,10 @@ CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
         <a href="./Recommendations.aspx" class="nav-link">המלצות</a>
         <a href="./WhereToBegin.aspx" class="nav-link">איך מתחילים</a>
         <a href="./Architecture.aspx" class="nav-link">ארכיטקטורה</a>
-        <%if (Session["username"])%>
+        <%if (Session["username"] == null)
+            {%>
         <a href="./Form.aspx" class="nav-link">היכנס</a>
-        <%%>
+        <%}%>
       </nav>
     </header>
 

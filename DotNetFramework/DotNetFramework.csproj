@@ -65,11 +65,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database.accdb" />
+    <Content Include="Global.asax" />
     <Content Include="javascript\validation.js" />
     <Content Include="pages\Architecture.aspx" />
     <Content Include="assets\arrow_upward_black_24dp.svg" />
     <Content Include="pages\ContactUs.aspx" />
     <Content Include="pages\DoesItWorthIt.aspx" />
+    <Content Include="pages\Login.aspx" />
     <Content Include="pages\Registration.aspx" />
     <Content Include="assets\iota-smart_home.jpg" />
     <Content Include="pages\Recommendations.aspx" />
@@ -83,6 +85,9 @@
     <Content Include="pages\WhereToBegin.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="pages\Architecture.aspx.cs">
       <DependentUpon>Architecture.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -103,6 +108,13 @@
     </Compile>
     <Compile Include="pages\DoesItWorthIt.aspx.designer.cs">
       <DependentUpon>DoesItWorthIt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
@@ -155,6 +167,7 @@
       <DependentUpon>WhereToBegin.aspx</DependentUpon>
     </Compile>
     <Compile Include="db_services\AdoHelper.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.Master" />

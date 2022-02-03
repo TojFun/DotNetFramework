@@ -39,7 +39,7 @@ const reset = (element) => {
   });
 };
 
-const validateForm = () => {
+const validateRegistration = () => {
   resetErrors(); // reset all errors
 
   let isValid = true; // assume all fields are valid
@@ -55,6 +55,18 @@ const validateForm = () => {
 
   return isValid;
 };
+
+const validateLogin = () => {
+    resetErrors(); // reset all errors
+
+    let isValid = true; // assume all fields are valid
+
+    isValid = validateEmail() && isValid;
+    isValid = validatePassword();
+
+    return isValid;
+
+}
 
 /**
  * @param  {HTMLInputElement} element

@@ -17,7 +17,7 @@ namespace DotNetFramework
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            Session["user"]
+            // Session["user"];
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
