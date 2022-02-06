@@ -11,7 +11,7 @@ namespace DotNetFramework.pages
 {
 
 
-    public partial class Registration
+    public partial class Register
     {
     }
 }

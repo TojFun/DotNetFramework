@@ -73,7 +73,7 @@
     <Content Include="pages\ContactUs.aspx" />
     <Content Include="pages\DoesItWorthIt.aspx" />
     <Content Include="pages\Login.aspx" />
-    <Content Include="pages\Registration.aspx" />
+    <Content Include="pages\Register.aspx" />
     <Content Include="assets\iota-smart_home.jpg" />
     <Content Include="pages\Recommendations.aspx" />
     <Content Include="pages\Options.aspx" />
@@ -124,12 +124,12 @@
     <Compile Include="pages\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\Registration.aspx.cs">
-      <DependentUpon>Registration.aspx</DependentUpon>
+    <Compile Include="pages\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\Registration.aspx.designer.cs">
-      <DependentUpon>Registration.aspx</DependentUpon>
+    <Compile Include="pages\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
