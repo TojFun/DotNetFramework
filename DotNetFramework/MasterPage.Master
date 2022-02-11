@@ -61,8 +61,8 @@ CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
         שלום, <strong><%Response.Write(Session["username"]);%></strong>.
         <span>
           <%if ((string)Session["username"] == "אורח") {%>
-          <a href="./Login.aspx" class="link">היכנס</a><% } else { %>
-          <a onclick="logout()" class="link">התנתק</a><%} %>.</span
+          <a href="./Login.aspx" class="link underline-hover-effect">היכנס</a><% } else { %>
+          <a onclick="logout()" class="link underline-hover-effect">התנתק</a><%} %>.</span
         >
       </div>
 
