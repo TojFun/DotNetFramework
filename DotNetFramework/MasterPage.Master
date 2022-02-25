@@ -1,10 +1,10 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true"
-CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
+    CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
 
 <!DOCTYPE html>
 
 <html lang="he" dir="rtl">
-  <head runat="server">
+<head runat="server">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -15,92 +15,85 @@ CodeBehind="MasterPage.master.cs" Inherits="DotNetFramework.MasterPage" %>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
-      rel="stylesheet"
-    />
+        href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+        rel="stylesheet" />
 
     <!-- Nunito Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
-      rel="stylesheet"
-    />
+        href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+        rel="stylesheet" />
 
     <script>
-      const logout = () => {
-        if (confirm("Are you sure you want to logout?"))
-          window.location.href = "/pages/Logout.aspx";
-      };
+        const logout = () => {
+            if (confirm("Are you sure you want to logout?"))
+                window.location.href = "/pages/Logout.aspx";
+        };
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
-  </head>
-  <body>
+</head>
+<body>
     <header id="header">
-      <nav class="nav">
-        <a class="underline-hover-effect" href="./Home.aspx">בית</a>
-        <a class="underline-hover-effect" href="./DoesItWorthIt.aspx">
-          האם זה שווה את זה
-        </a>
-        <a class="underline-hover-effect" href="./WhatCanYouDo.aspx">
-          השימושים
-        </a>
-        <a class="underline-hover-effect" href="./Options.aspx">האפשרויות</a>
-        <a class="underline-hover-effect" href="./Recommendations.aspx">
-          המלצות
-        </a>
-        <a class="underline-hover-effect" href="./WhereToBegin.aspx">
-          איך מתחילים
-        </a>
-        <a class="underline-hover-effect" href="./Architecture.aspx">
-          ארכיטקטורה
-        </a>
-      </nav>
+        <nav class="nav">
+            <a class="underline-hover-effect" href="./Home.aspx">בית</a>
+            <a class="underline-hover-effect" href="./DoesItWorthIt.aspx">האם זה שווה את זה
+            </a>
+            <a class="underline-hover-effect" href="./WhatCanYouDo.aspx">השימושים
+            </a>
+            <a class="underline-hover-effect" href="./Options.aspx">האפשרויות</a>
+            <a class="underline-hover-effect" href="./Recommendations.aspx">המלצות
+            </a>
+            <a class="underline-hover-effect" href="./WhereToBegin.aspx">איך מתחילים
+            </a>
+            <a class="underline-hover-effect" href="./Architecture.aspx">ארכיטקטורה
+            </a>
+        </nav>
 
-      <div>
-        שלום, <strong><%Response.Write(Session["username"]);%></strong>.
+        <div>
+            שלום, <strong><%=Session["username"]%></strong>.
         <span>
-          <%if ((string)Session["username"] == "אורח") {%>
-          <a href="./Login.aspx" class="link underline-hover-effect">היכנס</a><% } else { %>
-          <a onclick="logout()" class="link underline-hover-effect">התנתק</a><%} %>.</span
-        >
-      </div>
+            <%if ((string)Session["username"] == "אורח")
+                {%>
+            <a href="./Login.aspx" class="link underline-hover-effect">היכנס</a><% }
+                          else
+                          { %>
+            <a onclick="logout()" class="link underline-hover-effect">התנתק</a><%} %>.</span>
+        </div>
 
-      <div>
-        ישנם <%Response.Write(Application["counter"]);%> משתמשים פעילים באתר
+        <div>
+            ישנם <%=Application["counter"]%> משתמשים פעילים באתר
         כרגע.
-      </div>
+        </div>
     </header>
 
     <main>
-      <asp:ContentPlaceHolder ID="MainScreen" runat="server">
-      </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="MainScreen" runat="server">
+        </asp:ContentPlaceHolder>
     </main>
 
     <footer>
-      <div style="display: flex; justify-content: space-between">
-        <span class="subtext"
-          >רוצה לדעת עוד?
+        <div style="display: flex; justify-content: space-between">
+            <span class="subtext">רוצה לדעת עוד?
           <a
-            class="link"
-            target="_blank"
-            href="https://en.wikipedia.org/wiki/Home_automation"
-          >
-            <strong>לחץ כאן!</strong>
+              class="link"
+              target="_blank"
+              href="https://en.wikipedia.org/wiki/Home_automation">
+              <strong>לחץ כאן!</strong>
           </a>
-        </span>
+            </span>
 
-        <strong class="subtext">
-          <a class="link" href="./ContactUs.aspx">צור קשר </a>
-        </strong>
-      </div>
+            <strong class="subtext">
+                <a class="link" href="./ContactUs.aspx">צור קשר </a>
+            </strong>
+        </div>
 
-      <div class="align-center">
-        <a class="link" href="#header">
-          <span class="subtext">עלה למעלה</span>
-          <img src="../assets/arrow_upward_black_24dp.svg" alt="" />
-        </a>
-      </div>
+        <div class="align-center">
+            <a class="link" href="#header">
+                <span class="subtext">עלה למעלה</span>
+                <img src="../assets/arrow_upward_black_24dp.svg" alt="" />
+            </a>
+        </div>
     </footer>
-  </body>
+</body>
 </html>

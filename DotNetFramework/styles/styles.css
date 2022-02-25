@@ -133,7 +133,7 @@ footer {
   -webkit-box-shadow: 2px 2px 8px 3px rgba(0, 0, 0, 0.8);
   box-shadow: 2px 2px 8px 3px rgba(0, 0, 0, 0.8);
   padding: 1em;
-  border-radius:0.5em;
+  border-radius: 0.5em;
 }
 
 .underline {
@@ -162,4 +162,38 @@ footer {
 }
 .underline-hover-effect:hover::before {
   width: 100%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+a.btn {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn {
+  -webkit-box-shadow: 0.05em 0.05em 0.2em 0.075em rgba(0, 0, 0, 0.8);
+  box-shadow: 0.05em 0.05em 0.2em 0.075em rgba(0, 0, 0, 0.8);
+  border-radius: 0.3em;
+  padding: 0.3em;
+  user-select: none;
+}
+
+.btn:hover {
+  -webkit-box-shadow: 0.05em 0.05em 0.2em 0.075em rgba(0, 0, 0, 0.65);
+  box-shadow: 0.05em 0.05em 0.2em 0.075em rgba(0, 0, 0, 0.65);
+  cursor: pointer;
+}
+
+.btn:active {
+  -webkit-box-shadow: 0.05em 0.05em 0.2em 0.075em rgba(0, 0, 0, 0.3);
+  box-shadow: 0.05em 0.05em 0.2em 0.075em rgba(0, 0, 0, 0.3);
+  color: var(--primary-text);
+}
+
+.space-around {
+  display: flex;
+  justify-content: space-around;
 }
