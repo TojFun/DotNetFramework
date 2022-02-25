@@ -18,6 +18,7 @@ namespace DotNetFramework
     protected void Session_Start(object sender, EventArgs e)
     {
       Session["username"] = "אורח";
+      Session["isAdmin"] = false;
       Application["counter"] = (int)Application["counter"] + 1;
     }
 
@@ -39,6 +40,7 @@ namespace DotNetFramework
     protected void Session_End(object sender, EventArgs e)
     {
       Session["username"] = "אורח";
+      Session["isAdmin"] = false;
       Application["counter"] = (int)Application["counter"] - 1;
     }
 

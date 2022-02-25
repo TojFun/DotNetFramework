@@ -11,6 +11,7 @@ namespace DotNetFramework.pages
   {
     protected void Page_Load(object sender, EventArgs e)
     {
+            if ((bool)Session["isAdmin"]) Response.Redirect("~/pages/AdminHome.aspx");
     }
   }
 }

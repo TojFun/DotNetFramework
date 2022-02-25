@@ -67,6 +67,7 @@
     <Content Include="App_Data\Database.accdb" />
     <Content Include="Global.asax" />
     <Content Include="javascript\validation.js" />
+    <Content Include="pages\AdminHome.aspx" />
     <Content Include="pages\Logout.aspx" />
     <Content Include="pages\Architecture.aspx" />
     <Content Include="assets\arrow_upward_black_24dp.svg" />
@@ -88,6 +89,13 @@
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="pages\AdminHome.aspx.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\AdminHome.aspx.designer.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>

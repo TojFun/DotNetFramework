@@ -17,14 +17,18 @@ namespace DotNetFramework.pages
             string dbFileName = "Database.accdb", dbTableName = "table_users";
             string email = Request.Form["email"], pswrd = Request.Form["pswrd"];
 
-            DataTable user = AdoHelper.ExecuteDataTable(dbFileName, $"SELECT * FROM {dbTableName} WHERE email = '{email}' AND pswrd = '{pswrd}'");
-            if (user.Rows.Count == 0) 
+            DataTable users = AdoHelper.ExecuteDataTable(dbFileName, $"SELECT * FROM {dbTableName} WHERE email = '{email}' AND pswrd = '{pswrd}'");
+            if (users.Rows.Count == 0) 
             {
                 Response.Redirect("~/pages/Login.aspx?code=403");
                 return;
             }
 
-            Session["username"] = user.Rows[0]["firstName"] + " " + user.Rows[0]["lastName"];
+            DataRow user = users.Rows[0];
+
+            Session["username"] = $"{user["firstName"]} {user["lastName"]}";
+            Session["isAdmin"] = user["isAdmin"];
+
             Response.Redirect("~/pages/Home.aspx");
         }
     }

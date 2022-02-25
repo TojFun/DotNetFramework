@@ -112,7 +112,7 @@ public class AdoHelper
   /// הפעולה מקבלת שם קובץ ושאילתת שליפה. 
   /// הפעולה מחזירה את הרשומה הראשונה מתוך הרשומות שנמצאו מתאימות
   /// </summary>
-  public static Object[] GetFirstRowData(String fileName, String sql)
+  public static object[] GetFirstRowData(String fileName, String sql)
   {
     DataTable table = ExecuteDataTable(fileName, sql);
     if (table != null && table.Rows.Count > 0)
@@ -124,11 +124,23 @@ public class AdoHelper
     return null;
   }
 
-  /// <summary>
-  /// הפעולה מקבלת שם קובץ, שאילתת שליפה ואינדקס שדה לשליפה. 
-  /// הפעולה מחזירה את הערך לפי אינדקס השדה מתוך הרשומה הראשונה שנמצאה מתאימה
-  /// </summary>
-  public static String GetItemRowData(String fileName, String sql, int itemColNum)
+    public static object GetFirstRowObject(String fileName, String sql)
+    {
+        DataTable table = ExecuteDataTable(fileName, sql);
+        if (table != null && table.Rows.Count > 0)
+        {
+            DataRow row = table.Rows[0];
+            if (row != null)
+                return row;
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// הפעולה מקבלת שם קובץ, שאילתת שליפה ואינדקס שדה לשליפה. 
+    /// הפעולה מחזירה את הערך לפי אינדקס השדה מתוך הרשומה הראשונה שנמצאה מתאימה
+    /// </summary>
+    public static String GetItemRowData(String fileName, String sql, int itemColNum)
   {
     Object[] fields = AdoHelper.GetFirstRowData(fileName, sql);
     if (fields != null && itemColNum < fields.Length)
