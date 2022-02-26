@@ -64,8 +64,7 @@ public class AdoHelper
     conn.Open();
     OleDbCommand com = new OleDbCommand(sql, conn);
     OleDbDataReader data = com.ExecuteReader();
-    bool found;
-    found = (bool)data.Read();
+    bool found = data.Read();
     conn.Close();
     return found;
   }
