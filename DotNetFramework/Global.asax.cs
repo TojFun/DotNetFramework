@@ -18,7 +18,7 @@ namespace DotNetFramework
     protected void Session_Start(object sender, EventArgs e)
     {
       Session["username"] = "אורח";
-      Session["isAdmin"] = true;
+      Session["isAdmin"] = false;
       Application["counter"] = (int)Application["counter"] + 1;
     }
 

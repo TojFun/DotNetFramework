@@ -55,10 +55,11 @@
         <span>
             <%if ((string)Session["username"] == "אורח")
                 {%>
-            <a href="./Login.aspx" class="link underline-hover-effect">היכנס</a><% }
-                          else
-                          { %>
-            <a onclick="logout()" class="link underline-hover-effect">התנתק</a><%} %>.</span>
+            <a href="./Login.aspx" class="link underline-hover-effect">היכנס.</a>
+            <% }
+            else
+            { %>
+            <a onclick="logout()" class="link underline-hover-effect">התנתק.</a><%} %></span>
         </div>
 
         <div>
@@ -83,9 +84,9 @@
           </a>
             </span>
 
-            <strong class="subtext">
-                <a class="link" href="./ContactUs.aspx">צור קשר </a>
-            </strong>
+            
+                <a class="link" href="./ContactUs.aspx"><strong class="subtext">צור קשר</strong></a>
+            
         </div>
 
         <div class="align-center">
