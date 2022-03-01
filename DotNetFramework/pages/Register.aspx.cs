@@ -1,68 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace DotNetFramework.pages
 {
-  public partial class Register : Page
-  {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class Register : Page
     {
-      if (Request.Form["registrationSubmitButton"] == null) return;
+        private const string dbFileName = "Database.accdb", dbTableName = "table_users";
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Request.Form["registrationSubmitButton"] == null) return;
 
-      string dbFileName = "Database.accdb", dbTableName = "table_users";
+            if (AdoHelper.DoesExist(dbFileName, $"SELECT * FROM {dbTableName} WHERE email = '{Request.Form["email"]}'"))
+            {
+                Response.Redirect("~/pages/Registration.aspx?code=409");
+                return;
+            }
 
-      string firstName = Request.Form["firstName"], lastName = Request.Form["lastName"],
-       email = Request.Form["email"], gender = Request.Form["gender"],
-       phone = Request.Form["phone"], dueDate = Request.Form["dueDate"], 
-       pswrd = Request.Form["pswrd"], favoriteBrand = Request.Form["favoriteBrand"], 
-       dscrptn = Request.Form["dscrptn"];
+            var user = ServerUser.GenerateDictionary(Request.Form);
 
-      bool isAdult = Request.Form["isAdult"] == "isAdult";
+            Insert(user);
 
-      if (AdoHelper.DoesExist(dbFileName, $"SELECT * FROM {dbTableName} WHERE email = '{email}'"))
-      {
-        Response.Redirect("~/pages/Registration.aspx?code=409");
-        return;
-      }
+            //Session["user"] = user;
+            Session["username"] = $"{user["firstName"]} {user["lastName"]}";
+            Response.Redirect("Home.aspx");
+        }
 
-      Session["username"] = email;
+        public void Insert(Dictionary<string, object> user)
+        {
+            string insert = $"INSERT INTO { dbTableName } (";
+            foreach (var keyValuePair in user)
+                insert += $", {ServerUser.fields[keyValuePair.Key]}";
 
-      string insert =
-        $@"INSERT INTO
-          { dbTableName } (
-            firstName,
-            lastName,
-            email,
-            pswrd,
-            phone,
-            gender,
-            isAdult,
-            dueDate,
-            favoriteBrand,
-            dscrptn
-          )
-        VALUES
-          (
-            '{firstName}',
-            '{lastName}',
-            '{email}',
-            '{pswrd}',
-            '{phone}',
-            '{gender}',
-            { isAdult },
-            '{dueDate} 00:00:00',
-            '{favoriteBrand}',
-            '{dscrptn}'
-          )";
+            insert += $") VALUES (";
 
-      AdoHelper.DoQuery(dbFileName, insert);
-  
-      Session["username"] = $"{firstName} {lastName}";
-      Response.Redirect("Home.aspx");
+            foreach (var keyValuePair in user)
+            {
+                object value = keyValuePair.Value;
+                insert += value.GetType() == typeof(bool) ? $", {value}" : $", '{value}'";
+            }
+
+            insert += ")";
+
+            AdoHelper.DoQuery(dbFileName, insert);
+        }
     }
-  }
 }

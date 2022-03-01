@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace DotNetFramework.pages
 {
@@ -17,14 +11,12 @@ namespace DotNetFramework.pages
             string dbFileName = "Database.accdb", dbTableName = "table_users";
             string email = Request.Form["email"], pswrd = Request.Form["pswrd"];
 
-            DataTable users = AdoHelper.ExecuteDataTable(dbFileName, $"SELECT * FROM {dbTableName} WHERE email = '{email}' AND pswrd = '{pswrd}'");
-            if (users.Rows.Count == 0) 
+            var user = AdoHelper.GetFirstRowObject(dbFileName, $"SELECT * FROM {dbTableName} WHERE email = '{email}' AND pswrd = '{pswrd}'");
+            if (user == null)
             {
                 Response.Redirect("~/pages/Login.aspx?code=403");
                 return;
             }
-
-            DataRow user = users.Rows[0];
 
             Session["username"] = $"{user["firstName"]} {user["lastName"]}";
             Session["isAdmin"] = user["isAdmin"];
