@@ -38,10 +38,11 @@ namespace DotNetFramework.pages
             userFromForm["email"] = email; // just in case
 
             var compersion = ServerUser.Compare(userFromDB, userFromForm);
-            if (compersion == null || compersion.Count == 0) return;
-
-            string values = ServerUser.UserToKeyValue(compersion);
-            AdoHelper.DoQuery(dbFileName, $"UPDATE {dbTableName} SET {values} WHERE email = '{email}'");
+            if (compersion != null && compersion.Count != 0)
+            {
+                string values = ServerUser.UserToKeyValue(compersion);
+                AdoHelper.DoQuery(dbFileName, $"UPDATE {dbTableName} SET {values} WHERE email = '{email}'");
+            }
 
             Response.Redirect("~/pages/AdminHome.aspx");
         }

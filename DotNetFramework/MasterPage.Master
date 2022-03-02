@@ -83,13 +83,10 @@
               <strong>לחץ כאן!</strong>
           </a>
             </span>
-
-            
-                <a class="link" href="./ContactUs.aspx"><strong class="subtext">צור קשר</strong></a>
-            
+                <a class="link" href="./ContactUs.aspx"><strong class="subtext">צור קשר</strong></a> 
         </div>
 
-        <div class="align-center">
+        <div class="text-center">
             <a class="link" href="#header">
                 <span class="subtext">עלה למעלה</span>
                 <img src="../assets/arrow_upward_black_24dp.svg" alt="" />

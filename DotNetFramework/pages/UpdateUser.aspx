@@ -15,6 +15,11 @@
             onsubmit="return validateRegistration()"
             onreset="resetErrors()"
             action="UpdateUser.aspx?user=<%=email %>">
+            <div class="row form-column">
+                <span class="hasLabel ">דוא"ל: </span>
+                <span lang="en" dir="ltr" class="hasTextInput text-space bold larger" id="email"><%=(string)userFromDB["email"]%></span>
+            </div>
+
             <div class="row">
                 <span class="form-column hasLabel">
                     <label for="firstName" class="required">שם פרטי:</label>
@@ -42,23 +47,6 @@
                         name="lastName"
                         class="form-input"
                         value="<%=(string)userFromDB["lastName"]%>" />
-                </span>
-            </div>
-
-            <div class="row">
-                <span class="form-column hasLabel">
-                    <label for="email" class="required">דוא"ל:</label>
-                </span>
-                <span class="form-column hasTextInput flex-column">
-                    <input
-                        lang="en"
-                        dir="ltr"
-                        class="en form-input"
-                        onkeyup="validate(this)"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value="<%=(string)userFromDB["email"]%>" />
                 </span>
             </div>
 

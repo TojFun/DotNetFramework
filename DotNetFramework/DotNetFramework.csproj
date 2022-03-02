@@ -80,6 +80,7 @@
     <Content Include="pages\Recommendations.aspx" />
     <Content Include="pages\Options.aspx" />
     <Content Include="pages\UpdateUser.aspx" />
+    <Content Include="styles\admin.css" />
     <Content Include="styles\login.css" />
     <Content Include="styles\styles.css" />
     <Content Include="styles\home.css" />

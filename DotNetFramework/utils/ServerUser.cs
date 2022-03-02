@@ -43,7 +43,7 @@ public class ServerUser
             { "phone", userData["phone"] },
             { "email", userData["email"] },
             { "password", userData["pswrd"] },
-            { "isAdult", userData["isAdult"] == "isAdult" },
+            { "isAdult", userData["isAdult"] !=null  },
             { "gender", userData["gender"] },
             { "dueDate", DateTime.Parse(userData["dueDate"]) },
             { "favoriteBrand", userData["favoriteBrand"] },
