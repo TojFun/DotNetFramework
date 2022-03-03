@@ -14,7 +14,7 @@
         <div class=" box margin-bottom search">
             <div class="larger search-bar-column title" style="margin-bottom: 0.5em;">סינון חיפוש:</div>
             <div class="bar">
-                <span class=" search-bar-column">
+                <span class="search-bar-column">
                     <span class="form-column bold">
                         <label for="favoriteBrand ">מותג מועדף:</label>
                     </span>
@@ -59,7 +59,7 @@
 
     <div>
         <h2>משתמשי האתר:</h2>
-        <%if (table.Length > 0)
+        <%if (table.CountChildren > 0)
             {  %>
         <table border="1" style="width: 100%;">
             <thead>
@@ -76,9 +76,7 @@
                     <th>פעולות</th>
                 </tr>
             </thead>
-            <tbody>
                 <%=table %>
-            </tbody>
         </table>
         <%} %>
     </div>

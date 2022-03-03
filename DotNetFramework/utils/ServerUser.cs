@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
 
-public class ServerUser
+namespace DotNetFramework.utils
 {
-    public static Dictionary<string, string> fields = new Dictionary<string, string>{
+    public class ServerUser
+    {
+        public static Dictionary<string, string> fields = new Dictionary<string, string>{
         { "firstName", "firstName" },
         { "lastName","lastName" },
         { "phone","phone" },
@@ -18,9 +20,9 @@ public class ServerUser
         { "favoriteBrand","favoriteBrand" },
         { "description","dscrptn" }};
 
-    public static Dictionary<string, object> GenerateDictionary(DataRow userDataRow) =>
-        new Dictionary<string, object>
-          {
+        public static Dictionary<string, object> GenerateDictionary(DataRow userDataRow) =>
+            new Dictionary<string, object>
+              {
             { "firstName",(string)userDataRow["firstName"] },
             {"lastName",(string)userDataRow["lastName"] },
             { "phone", (string)userDataRow["phone"] },
@@ -32,12 +34,12 @@ public class ServerUser
             { "favoriteBrand", (string)userDataRow["favoriteBrand"] },
             { "description", (string)userDataRow["dscrptn"] },
             { "isAdmin", (bool)userDataRow["isAdmin"] }
-          };
+              };
 
 
-    public static Dictionary<string, object> GenerateDictionary(NameValueCollection userData) =>
-        new Dictionary<string, object>
-        {
+        public static Dictionary<string, object> GenerateDictionary(NameValueCollection userData) =>
+            new Dictionary<string, object>
+            {
             { "firstName",userData["firstName"] },
             {"lastName",userData["lastName"] },
             { "phone", userData["phone"] },
@@ -49,34 +51,34 @@ public class ServerUser
             { "favoriteBrand", userData["favoriteBrand"] },
             { "description", userData["dscrptn"] },
             { "isAdmin", false }
-        };
+            };
 
-    public static Dictionary<string, object> Compare(Dictionary<string, object> oldUserInfo, Dictionary<string, object> newUserInfo)
-    {
-        if (oldUserInfo == null || newUserInfo == null) return null;
-
-        var result = new Dictionary<string, object>();
-        foreach (var pair in newUserInfo)
+        public static Dictionary<string, object> Compare(Dictionary<string, object> oldUserInfo, Dictionary<string, object> newUserInfo)
         {
-            string key = pair.Key; object value = pair.Value;
+            if (oldUserInfo == null || newUserInfo == null) return null;
 
-            if (oldUserInfo.ContainsKey(key) && !value.Equals(oldUserInfo[key]))
-                result.Add(key, value);
+            var result = new Dictionary<string, object>();
+            foreach (var pair in newUserInfo)
+            {
+                string key = pair.Key; object value = pair.Value;
+
+                if (oldUserInfo.ContainsKey(key) && !value.Equals(oldUserInfo[key]))
+                    result.Add(key, value);
+            }
+
+            return result;
         }
 
-        return result;
-    }
+        public static string UserToKeyValue(Dictionary<string, object> user)
+        {
+            string str = "";
 
-    public static string UserToKeyValue(Dictionary<string, object> user)
-    {
-        string str = "";
+            foreach (var pair in user)
+                str +=
+                    $"{pair.Key} = { (pair.Value.GetType() == typeof(bool) ? pair.Value : $"'{pair.Value}'")},";
 
-        foreach (var pair in user)
-            str += pair.Value.GetType() == typeof(bool) ?
-                $"{pair.Key} = {pair.Value}" :
-                $"{pair.Key} = '{pair.Value}'";
-
-        return str;
+            return str.Remove(str.Length - 1);
+        }
     }
 }
 

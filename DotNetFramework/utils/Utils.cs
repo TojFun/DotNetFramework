@@ -1,4 +1,7 @@
-﻿public class Utils
+﻿namespace DotNetFramework.utils
 {
-    public static void Print(object toPrint) => System.Diagnostics.Debug.WriteLine(toPrint);
+    public class Utils
+    {
+        public static void Print(object toPrint) => System.Diagnostics.Debug.WriteLine(toPrint);
+    }
 }

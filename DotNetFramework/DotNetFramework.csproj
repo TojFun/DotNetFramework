@@ -200,6 +200,8 @@
       <DependentUpon>WhereToBegin.aspx</DependentUpon>
     </Compile>
     <Compile Include="db_services\AdoHelper.cs" />
+    <Compile Include="utils\Components.cs" />
+    <Compile Include="utils\WebElement.cs" />
     <Compile Include="utils\Name.cs" />
     <Compile Include="utils\ServerUser.cs" />
     <Compile Include="utils\Utils.cs" />

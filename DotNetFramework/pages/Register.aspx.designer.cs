@@ -9,8 +9,6 @@
 
 namespace DotNetFramework.pages
 {
-
-
     public partial class Register
     {
     }

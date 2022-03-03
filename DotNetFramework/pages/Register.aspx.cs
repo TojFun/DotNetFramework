@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DotNetFramework.utils;
+using System;
 using System.Collections.Generic;
 using System.Web.UI;
 
@@ -13,7 +14,7 @@ namespace DotNetFramework.pages
 
             if (AdoHelper.DoesExist(dbFileName, $"SELECT * FROM {dbTableName} WHERE email = '{Request.Form["email"]}'"))
             {
-                Response.Redirect("~/pages/Registration.aspx?code=409");
+                Response.Redirect("~/pages/Register.aspx?code=409");
                 return;
             }
 
@@ -30,14 +31,14 @@ namespace DotNetFramework.pages
         {
             string insert = $"INSERT INTO { dbTableName } (";
             foreach (var keyValuePair in user)
-                insert += $", {ServerUser.fields[keyValuePair.Key]}";
+                insert += $"{(keyValuePair.Key == "firstName" ? "" : ",")} {ServerUser.fields[keyValuePair.Key]}";
 
             insert += $") VALUES (";
 
             foreach (var keyValuePair in user)
             {
                 object value = keyValuePair.Value;
-                insert += value.GetType() == typeof(bool) ? $", {value}" : $", '{value}'";
+                insert += $"{(keyValuePair.Key == "firstName" ? "" : ",")} { (value.GetType() == typeof(bool) ? value : $"'{value}'")}";
             }
 
             insert += ")";
