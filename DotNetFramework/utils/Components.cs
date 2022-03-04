@@ -39,7 +39,7 @@ namespace DotNetFramework.utils
                 ) }
            );
 
-        public static WebElement TextInput(string id, string label, string lang = "he", string type = "text", string value = null) => new WebElement("div",
+        public static WebElement TextInput(string id, string label, string lang = "he", string type = "text", string value = null, bool textarea = false) => new WebElement("div",
             classes: "row",
             children: new List<object> {
                 new WebElement("span", classes: "form-column hasLabel",
@@ -50,13 +50,14 @@ namespace DotNetFramework.utils
                         )
                     ),
                 new WebElement("span", classes: "form-column hasTextInput flex-column",
-                    children: new WebElement("input", id: id, classes:"form-input",
+                    children: new WebElement(textarea ? "textarea" : "input", id: id, classes:"form-input",
+                        children:textarea ? value : null,
                         attributes: new Dictionary<string, string>{
                             {"onkeyup", "validate(this)" },
                             {"type",type }, {"name", id},
                             {"lang",lang },
                             { "dir",lang == "he" ? "rtl":"ltr"},
-                            {"value", value, value != null}
+                            {"value", value, value != null && !textarea}
                         }))
             });
     }

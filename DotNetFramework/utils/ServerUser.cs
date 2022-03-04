@@ -7,7 +7,7 @@ namespace DotNetFramework.utils
 {
     public class ServerUser
     {
-        public static Dictionary<string, string> fields = new Dictionary<string, string>{
+        public static Dictionary<string, string> fields = new Dictionary<string, string> {
         { "firstName", "firstName" },
         { "lastName","lastName" },
         { "phone","phone" },
