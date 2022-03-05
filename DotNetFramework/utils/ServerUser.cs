@@ -23,17 +23,17 @@ namespace DotNetFramework.utils
         public static Dictionary<string, object> GenerateDictionary(DataRow userDataRow) =>
             new Dictionary<string, object>
               {
-            { "firstName",(string)userDataRow["firstName"] },
-            {"lastName",(string)userDataRow["lastName"] },
-            { "phone", (string)userDataRow["phone"] },
-            { "email", (string)userDataRow["email"] },
-            { "password", (string)userDataRow["pswrd"] },
-            { "isAdult", (bool)userDataRow["isAdult"] },
-            { "gender", (string)userDataRow["gender"] },
-            { "dueDate", (DateTime)userDataRow["dueDate"] },
-            { "favoriteBrand", (string)userDataRow["favoriteBrand"] },
-            { "description", (string)userDataRow["dscrptn"] },
-            { "isAdmin", (bool)userDataRow["isAdmin"] }
+                { "firstName",(string)userDataRow["firstName"] },
+                {"lastName",(string)userDataRow["lastName"] },
+                { "phone", (string)userDataRow["phone"] },
+                { "email", (string)userDataRow["email"] },
+                { "password", (string)userDataRow["pswrd"] },
+                { "isAdult", (bool)userDataRow["isAdult"] },
+                { "gender", (string)userDataRow["gender"] },
+                { "dueDate", (DateTime)userDataRow["dueDate"] },
+                { "favoriteBrand", (string)userDataRow["favoriteBrand"] },
+                { "description", (string)userDataRow["dscrptn"] },
+                { "isAdmin", (bool)userDataRow["isAdmin"] }
               };
 
 
