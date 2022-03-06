@@ -25,6 +25,8 @@ namespace DotNetFramework.utils
 
         private bool isSelfClosed = false;
 
+        public string ID => id;
+
         public WebElement(string tag, string id = null, object classes = null, object children = null, Dictionary<string, string> attributes = null, Dictionary<string, string> styles = null)
         {
             this.tag = tag;
@@ -49,7 +51,6 @@ namespace DotNetFramework.utils
         private string Classes => string.Join(" ", classes);
 
         public void SetAttribute(string key, string value) => attributes[key] = value;
-
         public void AppendChild(object child) => children.Add(child);
         public int CountChildren => children.Count;
 

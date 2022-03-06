@@ -37,6 +37,7 @@ namespace DotNetFramework.pages
         {
             var userFromForm = ServerUser.GenerateDictionary(Request.Form);
             userFromForm["email"] = email; // just in case
+            userFromForm["isAdmin"] = userFromDB["isAdmin"];
 
             var compersion = ServerUser.Compare(userFromDB, userFromForm);
             if (compersion != null && compersion.Count != 0)

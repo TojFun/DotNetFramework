@@ -23,30 +23,6 @@ namespace DotNetFramework.pages
             GenerateTable(AdoHelper.ExecuteDataTable(dbFileName, query).Rows);
         }
 
-        //private void GenerateTable(DataRowCollection users)
-        //{
-        //    string addition;
-        //    Dictionary<string, object> user;
-
-        //    foreach (DataRow userRow in users)
-        //    {
-        //        user = ServerUser.GenerateDictionary(userRow);
-        //        addition = (bool) user["isAdmin"] ? "class=\"bold\"" : "";
-
-        //        table += $"<tr {addition}>\n";
-        //        table += $"<td>{user["firstName"]} {user["lastName"]}</td>\n";
-
-        //        foreach (var prop in user)
-        //            if (prop.Key != "isAdmin" && prop.Key != "firstName" && prop.Key != "lastName")
-        //                table += $"<td {(prop.Key == "gender" || prop.Key == "favoriteBrand" ? "class=\"capitalize\"" : "")}>" +
-        //                    $"{(prop.Key == "isAdult" ? Components.IsAdultCheckBox((bool) prop.Value) : prop.Value)}</td>\n";
-
-        //        table += $"<td class=\"space-around\">{Components.UpdateButton((string) user["email"])}" +
-        //            $"{((bool) user["isAdmin"] ? "" : Components.DeleteButton((string) user["email"]).ToString())}</td>\n" +
-        //            $"</tr>\n";
-        //    }
-        //}
-
         private void GenerateTable(DataRowCollection users)
         {
             Dictionary<string, object> user;
@@ -71,8 +47,8 @@ namespace DotNetFramework.pages
                     classes: "space-around",
                     children: new List<object> {
                         Components.UpdateButton((string) user["email"]),
-                        { Components.DeleteButton((string) user["email"]), !(bool) user["isAdmin"] }}
-                    ));
+                        { Components.DeleteButton((string) user["email"]), !(bool) user["isAdmin"] }
+                    }));
 
                 table.AppendChild(new WebElement("tr", classes: (bool) user["isAdmin"] ? "bold" : null, children: columns));
             }

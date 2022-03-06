@@ -17,6 +17,22 @@ namespace DotNetFramework.utils
         }
     }
 
+    public class Article : WebElement
+    {
+        private int sectionsCount = 0;
+        public Article(string id, object classes = null, object children = null,
+            Dictionary<string, string> attributes = null, Dictionary<string, string> styles = null) :
+            base("article", id, classes, children, attributes, styles)
+        { }
+
+        public void AddSection(string id = null, object classes = null, object children = null,
+            Dictionary<string, string> attributes = null, Dictionary<string, string> styles = null)
+        {
+            sectionsCount++;
+            AppendChild(new WebElement("section", id ?? $"{ID}-section-{sectionsCount}", classes, children, attributes, styles));
+        }
+    }
+
     public class Components
     {
         public static WebElement UpdateButton(string user) => new WebElement("a",
@@ -52,7 +68,7 @@ namespace DotNetFramework.utils
                 new WebElement("span", classes: "form-column hasTextInput flex-column",
                     children: new WebElement(textarea ? "textarea" : "input", id: id, classes:"form-input",
                         children:textarea ? value : null,
-                        attributes: new Dictionary<string, string>{
+                        attributes: new Dictionary<string, string> {
                             {"onkeyup", "validate(this)" },
                             {"type",type }, {"name", id},
                             {"lang",lang },
