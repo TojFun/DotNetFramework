@@ -27,7 +27,8 @@ namespace DotNetFramework.utils
 
         public string ID => id;
 
-        public WebElement(string tag, string id = null, object classes = null, object children = null, Dictionary<string, string> attributes = null, Dictionary<string, string> styles = null)
+        public WebElement(string tag, string id = null, object classes = null, object children = null,
+            Dictionary<string, string> attributes = null, Dictionary<string, string> styles = null)
         {
             this.tag = tag;
             this.id = id;
@@ -35,23 +36,20 @@ namespace DotNetFramework.utils
             this.styles = styles ?? new Dictionary<string, string>();
             isSelfClosed = selfClosingTags.Contains(tag);
 
-            this.classes = (classes == null ? new List<string>() :
-                classes.GetType() == typeof(string) ? ((string) classes).Split().ToList() :
-                classes.GetType() == typeof(List<string>) ? (List<string>) classes :
-                throw classMustBeString);
-
-            this.children = children == null ? new List<object>() :
-                isSelfClosed ? throw selfClosingChildren :
-                children.GetType() == typeof(WebElement) || children.GetType() == typeof(string) ? new List<object> { children } :
-                children.GetType() == typeof(List<object>) ? (List<object>) children :
-                throw childrenNotStringOrElement;
+            GenerateClasses(classes);
+            GenerateChildren(children);
         }
+
         private string Attributes => string.Join(" ", attributes.Select(kv => $"{kv.Key}{(kv.Value == "" ? "" : $"=\"{kv.Value}\"")}").ToArray());
         private string Styles => string.Join(" ", styles.Select(kv => $"{kv.Key}: {kv.Value};").ToArray());
         private string Classes => string.Join(" ", classes);
 
         public void SetAttribute(string key, string value) => attributes[key] = value;
         public void AppendChild(object child) => children.Add(child);
+        public void AppendChildren(List<object> moreChildren) => children.AddRange(moreChildren);
+        public void AppendClass(string aClass) => classes.Add(aClass);
+        public void AppendClass(List<string> moreClasses) => classes.AddRange(moreClasses);
+
         public int CountChildren => children.Count;
 
         public override string ToString()
@@ -62,5 +60,16 @@ namespace DotNetFramework.utils
 
             return $"<{tag} {Attributes}{(isSelfClosed ? " /" : $">{string.Join("\n", children)}</{tag}")}>";
         }
+
+        private void GenerateClasses(object classes) => this.classes = (classes == null ? new List<string>() :
+                classes.GetType() == typeof(string) ? ((string) classes).Split().ToList() :
+                classes.GetType() == typeof(List<string>) ? (List<string>) classes :
+                throw classMustBeString);
+
+        private void GenerateChildren(object children) => this.children = children == null ? new List<object>() :
+                isSelfClosed ? throw selfClosingChildren :
+                children.GetType() == typeof(WebElement) || children.GetType() == typeof(string) ? new List<object> { children } :
+                children.GetType() == typeof(List<object>) ? (List<object>) children :
+                throw childrenNotStringOrElement;
     }
 }

@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AdminHome.aspx.cs" Inherits="DotNetFramework.pages.AdminHome" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="DotNetFramework.pages.AdminHome" %>
+
+<%@ Import Namespace="DotNetFramework.utils" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
@@ -10,7 +12,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">
-    <form action="AdminHome.aspx" method="get" id="search-form">
+    <form action="Home.aspx" method="get" id="search-form">
         <div class=" box margin-bottom search">
             <div class="larger search-bar-column title" style="margin-bottom: 0.5em;">סינון חיפוש:</div>
             <div class="bar">
@@ -37,22 +39,22 @@
                         <label for="gender">מין:</label>
                     </span>
                     <span class="form-column">
-                        <input <%=IsChecked("gender", "male" )%> type="radio" id="male" name="gender" value="male" onchange="change()"/>
+                        <input <%=IsChecked("gender", "male" )%> type="radio" id="male" name="gender" value="male" onchange="change()" />
                         <label for="male">זכר</label>
                     </span>
                     <span class="form-column">
-                        <input <%=IsChecked("gender", "female" )%> type="radio" id="female" name="gender" value="female" onchange="change()"/>
+                        <input <%=IsChecked("gender", "female" )%> type="radio" id="female" name="gender" value="female" onchange="change()" />
                         <label for="female">נקבה</label>
                     </span>
                     <span class="form-column">
-                        <input <%=IsChecked("gender", "other" )%> type="radio" id="other" name="gender" value="other" onchange="change()"/>
+                        <input <%=IsChecked("gender", "other" )%> type="radio" id="other" name="gender" value="other" onchange="change()" />
                         <label for="other">אחר</label>
                     </span>
                 </span>
             </div>
 
             <div class="actions">
-               <a href="AdminHome.aspx" id="reset-btn" name="reset-btn" class="btn colorful-btn align-center">אתחל</a>
+                <a href="Home.aspx" id="reset-btn" name="reset-btn" class="btn colorful-btn align-center">אתחל</a>
             </div>
         </div>
     </form>
@@ -76,8 +78,21 @@
                     <th>פעולות</th>
                 </tr>
             </thead>
-                <%=table %>
+            <%=table %>
         </table>
         <%} %>
     </div>
+
+    <%if ((string) Request.QueryString["code"] == "404")
+        { %>
+    <%=new ErrorMessage("User could not be found", $"The user {(string)Request.QueryString["user"]} could not be found.", "Return to Home", "Home.aspx") %>
+    <%}
+        else if ((string) Request.QueryString["code"] == "403")
+        { %>
+    <%=new ErrorMessage("Forbidden", $"The user {(string)Request.QueryString["user"]} cannot be deleted.", "Return to Home", "Home.aspx") %>
+    <%}
+        else if ((string) Request.QueryString["code"] == "200")
+        { %>
+    <%=new ErrorMessage((string)Request.QueryString["msg"], "", "Return to Home", "Home.aspx") %>
+    <%} %>
 </asp:Content>

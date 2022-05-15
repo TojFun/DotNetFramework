@@ -65,25 +65,39 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database.accdb" />
+    <Content Include="assets\AGA.png" />
+    <Content Include="assets\Amazon-Echo-Devices.png" />
+    <Content Include="assets\Amazon-Echo.jpg" />
+    <Content Include="assets\automation-1.png" />
+    <Content Include="assets\google-home.png" />
+    <Content Include="assets\google-nest-smart-home-devices.jpg" />
+    <Content Include="assets\Image-via-Shutterstock.com_.jpg" />
+    <Content Include="assets\iOS-15-HomeKit-Guide.jpg" />
+    <Content Include="assets\ios14-homepod-ipad-iphone12-pro-watch-homekit-hero.jpg" />
     <Content Include="Global.asax" />
+    <Content Include="javascript\master.js" />
     <Content Include="javascript\validation.js" />
-    <Content Include="pages\AdminHome.aspx" />
-    <Content Include="pages\DeleteUser.aspx" />
+    <Content Include="admin\Home.aspx" />
+    <Content Include="admin\DeleteUser.aspx" />
     <Content Include="pages\Logout.aspx" />
     <Content Include="pages\Architecture.aspx" />
     <Content Include="assets\arrow_upward_black_24dp.svg" />
-    <Content Include="pages\ContactUs.aspx" />
     <Content Include="pages\DoesItWorthIt.aspx" />
     <Content Include="pages\Login.aspx" />
+    <Content Include="pages\Options.aspx" />
     <Content Include="pages\Register.aspx" />
     <Content Include="assets\iota-smart_home.jpg" />
     <Content Include="pages\Recommendations.aspx" />
-    <Content Include="pages\Options.aspx" />
-    <Content Include="pages\UpdateUser.aspx" />
+    <Content Include="admin\UpdateUser.aspx" />
+    <Content Include="options\Google.aspx" />
+    <Content Include="options\Apple.aspx" />
+    <Content Include="options\Amazon.aspx" />
     <Content Include="styles\admin.css" />
+    <Content Include="styles\dark-mode-toggle.css" />
     <Content Include="styles\login.css" />
     <Content Include="styles\styles.css" />
     <Content Include="styles\home.css" />
+    <Content Include="styles\options.css" />
     <Content Include="Web.config" />
     <Content Include="pages\Home.aspx" />
     <Content Include="pages\WhatCanYouDo.aspx" />
@@ -93,18 +107,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="pages\AdminHome.aspx.cs">
-      <DependentUpon>AdminHome.aspx</DependentUpon>
+    <Compile Include="admin\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\AdminHome.aspx.designer.cs">
-      <DependentUpon>AdminHome.aspx</DependentUpon>
+    <Compile Include="admin\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\DeleteUser.aspx.cs">
+    <Compile Include="admin\DeleteUser.aspx.cs">
       <DependentUpon>DeleteUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\DeleteUser.aspx.designer.cs">
+    <Compile Include="admin\DeleteUser.aspx.designer.cs">
       <DependentUpon>DeleteUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\Logout.aspx.cs">
@@ -121,13 +135,6 @@
     <Compile Include="pages\Architecture.aspx.designer.cs">
       <DependentUpon>Architecture.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\ContactUs.aspx.cs">
-      <DependentUpon>ContactUs.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\ContactUs.aspx.designer.cs">
-      <DependentUpon>ContactUs.aspx</DependentUpon>
-    </Compile>
     <Compile Include="pages\DoesItWorthIt.aspx.cs">
       <DependentUpon>DoesItWorthIt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -141,6 +148,20 @@
     </Compile>
     <Compile Include="pages\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Options.aspx.cs">
+      <DependentUpon>Options.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Options.aspx.designer.cs">
+      <DependentUpon>Options.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="options\Options.master.cs">
+      <DependentUpon>Options.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="options\Options.master.designer.cs">
+      <DependentUpon>Options.master</DependentUpon>
     </Compile>
     <Compile Include="pages\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -156,12 +177,33 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
-    <Compile Include="pages\UpdateUser.aspx.cs">
+    <Compile Include="admin\UpdateUser.aspx.cs">
       <DependentUpon>UpdateUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\UpdateUser.aspx.designer.cs">
+    <Compile Include="admin\UpdateUser.aspx.designer.cs">
       <DependentUpon>UpdateUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="options\Google.aspx.cs">
+      <DependentUpon>Google.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="options\Google.aspx.designer.cs">
+      <DependentUpon>Google.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="options\Apple.aspx.cs">
+      <DependentUpon>Apple.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="options\Apple.aspx.designer.cs">
+      <DependentUpon>Apple.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="options\Amazon.aspx.cs">
+      <DependentUpon>Amazon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="options\Amazon.aspx.designer.cs">
+      <DependentUpon>Amazon.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="pages\Home.aspx.cs">
@@ -177,13 +219,6 @@
     </Compile>
     <Compile Include="pages\Recommendations.aspx.designer.cs">
       <DependentUpon>Recommendations.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pages\Options.aspx.cs">
-      <DependentUpon>Options.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\Options.aspx.designer.cs">
-      <DependentUpon>Options.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\WhatCanYouDo.aspx.cs">
       <DependentUpon>WhatCanYouDo.aspx</DependentUpon>
@@ -202,14 +237,13 @@
     <Compile Include="db_services\AdoHelper.cs" />
     <Compile Include="utils\Components.cs" />
     <Compile Include="utils\WebElement.cs" />
-    <Compile Include="utils\Name.cs" />
-    <Compile Include="utils\ServerUser.cs" />
     <Compile Include="utils\Utils.cs" />
     <Compile Include="WebsiteUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.Master" />
     <None Include="packages.config" />
+    <Content Include="options\Options.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

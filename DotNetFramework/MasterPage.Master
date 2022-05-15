@@ -10,6 +10,7 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/dark-mode-toggle.css" />
 
     <!-- Varela Round Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,46 +26,58 @@
         href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
         rel="stylesheet" />
 
-    <script>
-        const logout = () => {
-            if (confirm("Are you sure you want to logout?"))
-                window.location.href = "/pages/Logout.aspx";
-        };
-    </script>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+
+    <script src="../javascript/master.js" defer></script>
+    <title>בית חכם</title>
 </head>
 <body>
     <header id="header">
         <nav class="nav">
-            <a class="underline-hover-effect" href="./Home.aspx">בית</a>
-            <a class="underline-hover-effect" href="./DoesItWorthIt.aspx">האם זה שווה את זה
+            <a class="underline-hover-effect" href="../pages/Home.aspx">בית</a>
+            <a class="underline-hover-effect" href="../pages/DoesItWorthIt.aspx">האם זה שווה את זה
             </a>
-            <a class="underline-hover-effect" href="./WhatCanYouDo.aspx">השימושים
+            <a class="underline-hover-effect" href="../pages/WhatCanYouDo.aspx">השימושים
             </a>
-            <a class="underline-hover-effect" href="./Options.aspx">האפשרויות</a>
-            <a class="underline-hover-effect" href="./Recommendations.aspx">המלצות
+            <a class="underline-hover-effect" href="../pages/Options.aspx">האפשרויות</a>
+            <a class="underline-hover-effect" href="../pages/Recommendations.aspx">המלצות
             </a>
-            <a class="underline-hover-effect" href="./WhereToBegin.aspx">איך מתחילים
+            <a class="underline-hover-effect" href="../pages/WhereToBegin.aspx">איך מתחילים
             </a>
-            <a class="underline-hover-effect" href="./Architecture.aspx">ארכיטקטורה
+            <a class="underline-hover-effect" href="../pages/Architecture.aspx">ארכיטקטורה
             </a>
         </nav>
 
-        <div>
-            שלום, <strong><%=Session["username"]%></strong>.
+        <div class="flex space-between align-center">
+            <div>
+                <div>
+                    שלום, <strong><%=Session["username"]%></strong>.
         <span>
-            <%if ((string)Session["username"] == "אורח")
-                {%>
-            <a href="./Login.aspx" class="link underline-hover-effect">היכנס.</a>
-            <% }
-            else
-            { %>
-            <a onclick="logout()" class="link underline-hover-effect">התנתק.</a><%} %></span>
-        </div>
+            <%if (Session["user"] == null)
 
-        <div>
-            ישנם <%=Application["counter"]%> משתמשים פעילים באתר
+
+                {%>
+            <a href="../pages/Login.aspx" class="link underline-hover-effect">היכנס.</a>
+            <% }
+                else
+                { %>
+            <a onclick="logout()" class="link underline-hover-effect">התנתק.</a><%} %></span>
+                </div>
+
+                <div>
+                    ישנ<%=(int)Application["counter"] == 1 ? "ו משתמש אחד פעיל" : $"ם {Application["counter"]} פעילים משתמשים"%> באתר
         כרגע.
+                </div>
+            </div>
+
+            <div>
+                <input type="checkbox" class="dark-mode-toggle" id="checkbox" onchange="toggle()">
+                <label for="checkbox" class="dark-mode-toggle-label">
+                    <span class="fas fa-moon">🌙</span>
+                    <span class='fas fa-sun'>🔆</span>
+                    <span class='dark-mode-toggle-ball'></span>
+                </label>
+            </div>
         </div>
     </header>
 
@@ -83,14 +96,12 @@
               <strong>לחץ כאן!</strong>
           </a>
             </span>
-                <a class="link" href="./ContactUs.aspx"><strong class="subtext">צור קשר</strong></a> 
-        </div>
-
-        <div class="text-center">
-            <a class="link" href="#header">
-                <span class="subtext">עלה למעלה</span>
-                <img src="../assets/arrow_upward_black_24dp.svg" alt="" />
-            </a>
+            <div class="">
+                <a class="link" href="#header">
+                    <span class="subtext">עלה למעלה</span>
+                    <img src="../assets/arrow_upward_black_24dp.svg" alt="" />
+                </a>
+            </div>
         </div>
     </footer>
 </body>

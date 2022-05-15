@@ -110,4 +110,9 @@
             </div>
         </form>
     </div>
+
+    <%if ((string)Request.QueryString["code"] == "409")
+        { %>
+    <%=new ErrorMessage("User Exists", "A user with this email adress already exists in the system.", "Try Again", "Login.aspx") %>
+    <%} %>
 </asp:Content>

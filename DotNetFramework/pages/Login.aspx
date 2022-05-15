@@ -49,4 +49,8 @@
             </div>
         </form>
     </div>
+    <%if ((string)Request.QueryString["code"] == "403")
+        { %>
+    <%=new ErrorMessage("User could not be found", "The username or password is wrong. Please try again.", "Try Again", "Login.aspx") %>
+    <%} %>
 </asp:Content>

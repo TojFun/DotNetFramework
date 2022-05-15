@@ -17,6 +17,23 @@ namespace DotNetFramework.utils
         }
     }
 
+    public class ErrorMessage : WebElement
+    {
+        public ErrorMessage(string title, string content, string buttonText, string refreshLink, object classes = null, Dictionary<string, string> styles = null)
+            : base("div")
+        {
+            var div = new WebElement("div", "error-message", classes, styles: styles, children: new List<object> {
+                    new WebElement("h1", id:"error-title", children:title),
+                    new WebElement("h4", id:"error-text", children:content),
+                    new LinkButton(refreshLink, id:"error-btn", children:buttonText )
+                });
+
+            div.AppendClass(new List<string> { "box", "error-message" });
+
+            AppendChildren(new List<object> { new WebElement("div", classes: "overlay", children: div) });
+        }
+    }
+
     public class Article : WebElement
     {
         private int sectionsCount = 0;
@@ -33,18 +50,33 @@ namespace DotNetFramework.utils
         }
     }
 
+    public class OrderedList : WebElement
+    {
+        private static int count = 1;
+        public OrderedList(string[] children) :
+            base("ol", $"ol{count}")
+        {
+
+            count++;
+            foreach (string child in children)
+            {
+                AppendChild(new WebElement("li", children: $"{child}."));
+            }
+        }
+    }
+
     public class Components
     {
-        public static WebElement UpdateButton(string user) => new WebElement("a",
-            classes: "material-icons-outlined btn",
-            attributes: new Dictionary<string, string> { { "href", $"UpdateUser.aspx?user={user}" } },
-            children: new List<object> { "manage_accounts" }
+        public static LinkButton UpdateButton(string user) => new LinkButton(
+            $"UpdateUser.aspx?user={user}",
+            classes: "material-icons-outlined",
+            children: "manage_accounts"
             );
 
-        public static WebElement DeleteButton(string user) => new WebElement("a",
-           classes: "material-icons-outlined btn",
-           attributes: new Dictionary<string, string> { { "href", $"DeleteUser.aspx?user={user}" } },
-           children: new List<object> { "person_remove" }
+        public static LinkButton DeleteButton(string user) => new LinkButton(
+            $"DeleteUser.aspx?user={user}",
+           classes: "material-icons-outlined",
+           children: "person_remove"
            );
 
         public static WebElement IsAdultCheckBox(bool isAdult) => new WebElement("div",
@@ -55,7 +87,8 @@ namespace DotNetFramework.utils
                 ) }
            );
 
-        public static WebElement TextInput(string id, string label, string lang = "he", string type = "text", string value = null, bool textarea = false) => new WebElement("div",
+        public static WebElement TextInput(string id, string label, string lang = "he", string type = "text", string value = null, bool textarea = false)
+            => new WebElement("div",
             classes: "row",
             children: new List<object> {
                 new WebElement("span", classes: "form-column hasLabel",
@@ -77,4 +110,11 @@ namespace DotNetFramework.utils
                         }))
             });
     }
+
+    public class LinkButton : WebElement
+    {
+        public LinkButton(string link, string id = null, object classes = null, object children = null, Dictionary<string, string> attributes = null, Dictionary<string, string> styles = null) :
+            base("a", id, classes, children, new Dictionary<string, string> { { "href", link } }, styles) => AppendClass(new List<string> { "btn", "inherit-color" });
+    }
+
 }

@@ -10,7 +10,7 @@ Inherits="DotNetFramework.pages.Home" %>
     <tr>
       <td>
         <img
-          class="image"
+          class="image box no-padding"
           src="../assets/iota-smart_home.jpg"
           alt="Couldn't load :("
         />
@@ -18,7 +18,7 @@ Inherits="DotNetFramework.pages.Home" %>
 
       <td>
         <iframe
-          class="youtube-video"
+          class="youtube-video box no-padding"
           src="https://www.youtube.com/embed/sJmplWe_cX0"
           title="YouTube video player"
           frameborder="0"

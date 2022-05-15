@@ -18,7 +18,8 @@ namespace DotNetFramework.pages
                 return;
             }
 
-            Session["username"] = $"{user["firstName"]} {user["lastName"]}";
+            Session["user"] = new WebsiteUser(user);
+            Session["username"] = ((WebsiteUser) Session["user"]).FullName;
             Session["isAdmin"] = user["isAdmin"];
 
             Response.Redirect("~/pages/Home.aspx");

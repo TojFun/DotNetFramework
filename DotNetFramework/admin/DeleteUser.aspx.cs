@@ -15,15 +15,24 @@ namespace DotNetFramework.pages
             }
 
             string email = Request.QueryString["user"];
+            var userRow = AdoHelper.GetFirstRowObject(dbFileName, $"SELECT * FROM {dbTableName} WHERE email='{email}'");
 
-            if (string.IsNullOrEmpty(email))
+            if (string.IsNullOrEmpty(email) || userRow == null)
             {
-                Response.Redirect($"~/pages/AdminHome.aspx?code=404&user={email}");
+                Response.Redirect($"~/admin/Home.aspx?code=404&user={email}");
+                return;
+            }
+
+            bool isAdmin = (new WebsiteUser(userRow)).IsAdmin;
+
+            if (isAdmin)
+            {
+                Response.Redirect($"~/admin/Home.aspx?code=403&user={email}");
                 return;
             }
 
             AdoHelper.DoQuery(dbFileName, $"DELETE FROM {dbTableName} WHERE email='{email}'");
-            Response.Redirect($"~/pages/AdminHome.aspx?code=200");
+            Response.Redirect($"~/admin/Home.aspx?code=200&msg=Successful+Delete");
         }
     }
 }

@@ -11,7 +11,7 @@ namespace DotNetFramework.pages
 {
 
 
-    public partial class ContactUs
+    public partial class WebForm3
     {
     }
 }

@@ -17,7 +17,7 @@
             action="UpdateUser.aspx?user=<%=email %>">
             <div class="row form-column">
                 <span class="hasLabel ">דוא"ל: </span>
-                <span lang="en" dir="ltr" class="hasTextInput text-space bold larger" id="email"><%=(string)userFromDB["email"]%></span>
+                <span lang="en" dir="ltr" class="hasTextInput text-space bold larger" id="email"><%=userFromDB.Email%></span>
             </div>
 
             <div class="row">
@@ -31,7 +31,7 @@
                         id="firstName"
                         name="firstName"
                         class="form-input"
-                        value="<%=(string)userFromDB["firstName"]%>" />
+                        value="<%=userFromDB.FirstName%>" />
                 </span>
             </div>
 
@@ -46,7 +46,7 @@
                         id="lastName"
                         name="lastName"
                         class="form-input"
-                        value="<%=(string)userFromDB["lastName"]%>" />
+                        value="<%=userFromDB.LastName%>" />
                 </span>
             </div>
 
@@ -55,20 +55,20 @@
                     <label for="gender">מין:</label>
                 </span>
                 <span class="form-column">
-                    <input type="radio" id="male" name="gender" value="male" <%=(string)userFromDB["gender"] == "male"? "checked" : ""%> />
+                    <input type="radio" id="male" name="gender" value="male" <%=userFromDB.Gender == "male"? "checked" : ""%> />
                     <label for="male">זכר</label>
                 </span>
                 <span class="form-column">
-                    <input type="radio" id="female" name="gender" value="female" <%=(string)userFromDB["gender"] == "female"? "checked" : ""%> />
+                    <input type="radio" id="female" name="gender" value="female" <%=userFromDB.Gender == "female"? "checked" : ""%> />
                     <label for="female">נקבה</label>
                 </span>
                 <span class="form-column">
-                    <input type="radio" id="other" name="gender" value="other" <%=(string)userFromDB["gender"] == "other" ? "checked" : ""%> />
+                    <input type="radio" id="other" name="gender" value="other" <%=userFromDB.Gender == "other" ? "checked" : ""%> />
                     <label for="other">אחר</label>
                 </span>
 
                 <span class="form-column">
-                    <input type="checkbox" id="isAdult" name="isAdult" <%=(bool)userFromDB["isAdult"] ? "checked" : ""%> />
+                    <input type="checkbox" id="isAdult" name="isAdult" <%=userFromDB.IsAdult ? "checked" : ""%> />
                     <label for="isAdult">אני מעל גיל 18</label>
                 </span>
             </div>
@@ -84,7 +84,7 @@
                         id="phone"
                         name="phone"
                         class="form-input"
-                        value="<%=(string)userFromDB["phone"]%>" />
+                        value="<%=userFromDB.Phone%>" />
                 </span>
             </div>
 
@@ -100,7 +100,7 @@
                         id="dueDate"
                         name="dueDate"
                         class="form-input"
-                        value="<%=((DateTime)userFromDB["dueDate"]).ToString("yyyy-MM-dd")%>" />
+                        value="<%=userFromDB.DueDate.ToString("yyyy-MM-dd")%>" />
                 </span>
             </div>
 
@@ -115,7 +115,7 @@
                         id="pswrd"
                         name="pswrd"
                         class="form-input"
-                        value="<%=(string)userFromDB["password"]%>" />
+                        value="<%=userFromDB.Password%>" />
                 </span>
             </div>
 
@@ -129,9 +129,9 @@
                         name="favoriteBrand"
                         id="favoriteBrand">
                         <!--Brands: Google, Alexa (Amazon), Siri (Apple)-->
-                        <option value="google" <%=(string)userFromDB["favoriteBrand"] == "google" ? "selected=\"selected\"" : ""%>>Google</option>
-                        <option value="amazon" <%=(string)userFromDB["favoriteBrand"] == "amazon" ? "selected=\"selected\"" : ""%>>Alexa (Amazon)</option>
-                        <option value="apple" <%=(string)userFromDB["favoriteBrand"] == "apple" ? "selected=\"selected\"" : ""%>>Siri (Apple)</option>
+                        <option value="google" <%=userFromDB.FavoriteBrand == "google" ? "selected=\"selected\"" : ""%>>Google</option>
+                        <option value="amazon" <%=userFromDB.FavoriteBrand == "amazon" ? "selected=\"selected\"" : ""%>>Alexa (Amazon)</option>
+                        <option value="apple" <%=userFromDB.FavoriteBrand == "apple" ? "selected=\"selected\"" : ""%>>Siri (Apple)</option>
                     </select>
                 </span>
             </div>
@@ -145,7 +145,7 @@
                         name="dscrptn"
                         id="dscrptn"
                         rows="5"
-                        class="form-input"><%=(string)userFromDB["description"]%></textarea>
+                        class="form-input"><%=userFromDB.Description%></textarea>
                 </span>
             </div>
 

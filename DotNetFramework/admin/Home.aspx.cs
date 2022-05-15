@@ -25,14 +25,14 @@ namespace DotNetFramework.pages
 
         private void GenerateTable(DataRowCollection users)
         {
-            Dictionary<string, object> user;
+            WebsiteUser user;
 
             foreach (DataRow userRow in users)
             {
-                user = ServerUser.GenerateDictionary(userRow);
-                var columns = new List<object> { new WebElement("td", children: new List<object> { user["firstName"], user["lastName"] }) };
+                user = new WebsiteUser(userRow);
+                var columns = new List<object> { new WebElement("td", children: new List<object> { user.FirstName, user.LastName }) };
 
-                foreach (var prop in user)
+                foreach (var prop in user.Dict)
                 {
                     if (prop.Key != "isAdmin" && prop.Key != "firstName" && prop.Key != "lastName")
                     {
@@ -46,11 +46,11 @@ namespace DotNetFramework.pages
                 columns.Add(new WebElement("td",
                     classes: "space-around",
                     children: new List<object> {
-                        Components.UpdateButton((string) user["email"]),
-                        { Components.DeleteButton((string) user["email"]), !(bool) user["isAdmin"] }
+                        Components.UpdateButton( user.Email),
+                        { Components.DeleteButton( user.Email), ! user.IsAdmin }
                     }));
 
-                table.AppendChild(new WebElement("tr", classes: (bool) user["isAdmin"] ? "bold" : null, children: columns));
+                table.AppendChild(new WebElement("tr", classes: user.IsAdmin ? "bold" : null, children: columns));
             }
         }
 

@@ -1,5 +1,4 @@
-﻿using DotNetFramework.utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Web.UI;
 
@@ -18,12 +17,12 @@ namespace DotNetFramework.pages
                 return;
             }
 
-            var user = ServerUser.GenerateDictionary(Request.Form);
+            var user = new WebsiteUser(Request.Form);
 
-            Insert(user);
+            Insert(user.Dict);
 
-            //Session["user"] = user;
-            Session["username"] = $"{user["firstName"]} {user["lastName"]}";
+            Session["user"] = user;
+            Session["username"] = user.FullName;
             Response.Redirect("Home.aspx");
         }
 
@@ -31,14 +30,14 @@ namespace DotNetFramework.pages
         {
             string insert = $"INSERT INTO { dbTableName } (";
             foreach (var keyValuePair in user)
-                insert += $"{(keyValuePair.Key == "firstName" ? "" : ",")} {ServerUser.fields[keyValuePair.Key]}";
+                insert += $"{(keyValuePair.Key == "firstName" ? "" : ",")} {WebsiteUser.fields[keyValuePair.Key]}";
 
             insert += $") VALUES (";
 
             foreach (var keyValuePair in user)
             {
                 object value = keyValuePair.Value;
-                insert += $"{(keyValuePair.Key == "firstName" ? "" : ",")} { (value.GetType() == typeof(bool) ? value : $"'{value}'")}";
+                insert += $"{(keyValuePair.Key == "firstName" ? "" : ",")} { (value.GetType() == typeof(bool) ? value : $"'{value.ToString().Replace("'", "＇")}'")}";
             }
 
             insert += ")";

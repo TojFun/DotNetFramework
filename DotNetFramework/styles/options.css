@@ -1,0 +1,9 @@
+﻿.btn {
+  padding: 0.7em 1em;
+  width: 6ch;
+  text-align: center;
+}
+
+.selected {
+  background-color: var(--secondary);
+}
