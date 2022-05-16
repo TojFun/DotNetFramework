@@ -1,6 +1,11 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Options.master.cs" Inherits="DotNetFramework.options.Options" %>
+<%@ Import Namespace="DotNetFramework.utils" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="../styles/options.css" />
+        <title>האופציות</title>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">
     <article class="box article-parent">
@@ -18,6 +23,12 @@
                 אבל אין להם את אותו מגוון ושליטה רחווה כמו שיש לשלוש המתחרות המובלות. בכלל, כמעט כל המתחרות
                 הקטנות, בצורה זו או אחרת, יכולות להתחבר לאחת או יותר מהשלוש הגדולות.
 
+            </p>
+            <p>
+                חשוב לציין שאלו אינן החברות היחידות שמציעות שירותים דומים, ויש גם את
+                <%=new WikiLink("SmartThings")%> של Sumsang, שהיא הרלוונטית ביותר. אך 
+                חברות אלו אינן מספיק ורסטיליות והן פונות בעיקר לקהל שקונה את המכשירים שלהם, ועל הדרך
+                מקבל את השירות החכם שלהן.
             </p>
         </section>
 

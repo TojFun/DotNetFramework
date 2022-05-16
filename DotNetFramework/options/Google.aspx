@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/options/Options.master" AutoEventWireup="true" CodeBehind="Google.aspx.cs" Inherits="DotNetFramework.pages.WebForm1" %>
+<%@ Import Namespace="DotNetFramework.utils" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="OptionsScreen" runat="server">
     <section class="s1">
@@ -10,7 +12,7 @@
                 שתומכים בGoogle ולנהל את הבית כולו מתוכה.
         </p>
         <p>
-            Google קנו את Nest ב2014, ומאז הם משדרגים את הבית החכם ביחד עם מוצרים כמו מנעול חכם
+            Google קנו את <%= new WikiLink("Nest", "Google_Nest") %> ב2014, ומאז הם משדרגים את הבית החכם ביחד עם מוצרים כמו מנעול חכם
                 ומצלמות אבטחה, שאמנם דורשים אפליקציה נוספת של Nest, אבל ברגע שהמוצר מחובר אלייה, הוא אוטומטית
                 הופך זמין לשליטה דרך האפליקציה הראשית.
         </p>
@@ -19,8 +21,8 @@
                 דורשים חיבור אפליקציה נוספת לאפליקציה הראשית (בקלות) ואפילו חלק מתחברים כמו מוצר טבעי.
         </p>
         <p>
-            העוזרת הקולית של Google (בעלת אותו השם) נמצאת בכל מקום, אם זה בNest Hub ששולט בכל הבית דרכה
-                או דרך המסך שאיתו מגיע, או בטלוויזיה, בטלפון החכם ואפילו ברמקולים צד שלישי כמו Sonos.
+            העוזרת הקולית של <%=new WikiLink("Google", "Google_Assistant")%> (בעלת אותו השם) נמצאת בכל מקום, אם זה בNest Hub ששולט בכל הבית דרכה
+                או דרך המסך שאיתו מגיע, או בטלוויזיה, בטלפון החכם ואפילו ברמקולים צד שלישי כמו <%=new WikiLink("Sonos")%>.
                 מהנסיון האישי שלי, אין ספק שGoogle Assistant היא העוזרת החכמה והטובה מבין כל המתחרות.
         </p>
         <p>
@@ -28,8 +30,8 @@
                 מאפשר יצירת אוטומציות שמופעלות על ידי פקודה, זמן או המיקום שלך.
         </p>
         <p>
-            החיסרון המרכזי של Google מAmazon שהמערכת קצת יותר סגורה, עם פחות Skills, ועם קצת פחות תמיכה במוצרים צד שלישי,
-                בדגש על קצת.
+            החיסרון המרכזי של Google מAmazon שהמערכת קצת יותר סגורה, עם פחות יכולות צד שלישי, ועם קצת
+            פחות תמיכה במוצרים צד שלישי,בדגש על קצת.
         </p>
         <p>
             לסיכום, Google ממרכזת את כל הבית לפלטפורמה אחת. היא ידידותית למשתמשים ועם מגוון יחסית רחב
@@ -38,7 +40,8 @@
     </section>
 
     <section class="s3 flex space-between" style="flex-direction: column; align-items: flex-end">
-        <img class="pic .margin-bottom" src="\assets\google-home.png" alt="Google Home" />
-        <img class="pic box" src="\assets\google-nest-smart-home-devices.jpg" alt="Couldn't load image :(" />
+        <img class="pic box margin-bottom" src="\assets\google-nest-smart-home-devices.jpg" alt="Couldn't load image :(" />
+        <img class="pic box margin-bottom" src="\assets\hero_blog_homeapp.jpg" alt="Google Home" />
+        <img class="pic " src="\assets\google-home.png" alt="Google Home" />
     </section>
 </asp:Content>

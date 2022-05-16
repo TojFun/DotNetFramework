@@ -3,6 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../javascript/validation.js"></script>
     <link rel="stylesheet" href="../styles/login.css" />
+
+    <title>עריכת משתמש <%= userFromDB.FullName%></title>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">

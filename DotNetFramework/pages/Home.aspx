@@ -4,6 +4,7 @@ Inherits="DotNetFramework.pages.Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
   <link rel="stylesheet" href="../styles/home.css">
+    <title>דף הבית</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">
   <table>

@@ -1,5 +1,4 @@
-﻿
-:root {
+﻿:root {
   --width: 3em;
 }
 
@@ -21,7 +20,6 @@
     padding: calc(var(--width) / 10);
     position: relative;
     box-sizing: border-box;
-    /* z-index: 1; */
 }
 
 .dark-mode-toggle-ball {

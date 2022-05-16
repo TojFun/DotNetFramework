@@ -8,12 +8,12 @@
     <script src="../javascript/validation.js"></script>
     <link rel="stylesheet" href="../styles/login.css" />
 
-    <title>Registration</title>
+    <title>הרשמה</title>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">
     <div class="box">
-        <div class="text-center text-header">הירשמות</div>
+        <div class="text-center text-header">הרשמה</div>
         <div>
             כבר נרשמת?
       <a class="link underline-hover-effect" href="Login.aspx">התחבר</a>.

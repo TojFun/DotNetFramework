@@ -2,6 +2,7 @@
 
 namespace DotNetFramework.utils
 {
+
     public static class Extensions
     {
         public static void Add<TKey, TValue>(this Dictionary<TKey, TValue> dict, TKey key, TValue value, bool condition = true)
@@ -17,6 +18,14 @@ namespace DotNetFramework.utils
         }
     }
 
+    public class WikiLink : WebElement
+    {
+        private static int counter = 0;
+        public WikiLink(string text, string link = null) : base("a", $"wikilink{counter}", "link underline-hover-effect", text,
+            new Dictionary<string, string> { { "href", $"https://en.wikipedia.org/wiki/{(link == null ? text : link)}" } },
+            new Dictionary<string, string> { { "font-weight", "bold" } }
+            ) => counter++;
+    }
     public class ErrorMessage : WebElement
     {
         public ErrorMessage(string title, string content, string buttonText, string refreshLink, object classes = null, Dictionary<string, string> styles = null)

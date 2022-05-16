@@ -414,3 +414,7 @@ section.s4 {
 .f-p {
   margin-top: 0;
 }
+
+.clickable{
+    cursor:pointer;
+}

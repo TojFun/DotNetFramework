@@ -4,6 +4,7 @@
 
 <%@ Import Namespace="DotNetFramework.utils" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>מה זה נותן לי</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">
     <article class="box article-parent">

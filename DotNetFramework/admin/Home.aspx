@@ -10,6 +10,8 @@
     <script>
         const change = () => document.querySelector("#search-form")?.submit()
     </script>
+
+    <title>מנהל - דף הבית</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">
     <form action="Home.aspx" method="get" id="search-form">

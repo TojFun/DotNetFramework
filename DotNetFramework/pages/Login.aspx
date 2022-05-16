@@ -8,7 +8,7 @@
     <script src="../javascript/validation.js"></script>
     <link rel="stylesheet" href="../styles/login.css" />
 
-    <title>Login</title>
+    <title>התחברות</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">
     <div class="box">
