@@ -28,7 +28,7 @@ namespace DotNetFramework.pages
 
         public void Insert(Dictionary<string, object> user)
         {
-            string insert = $"INSERT INTO { dbTableName } (";
+            string insert = $"INSERT INTO {dbTableName} (";
             foreach (var keyValuePair in user)
                 insert += $"{(keyValuePair.Key == "firstName" ? "" : ",")} {WebsiteUser.fields[keyValuePair.Key]}";
 
@@ -37,7 +37,7 @@ namespace DotNetFramework.pages
             foreach (var keyValuePair in user)
             {
                 object value = keyValuePair.Value;
-                insert += $"{(keyValuePair.Key == "firstName" ? "" : ",")} { (value.GetType() == typeof(bool) ? value : $"'{value.ToString().Replace("'", "＇")}'")}";
+                insert += $"{(keyValuePair.Key == "firstName" ? "" : ",")} {(value.GetType() == typeof(bool) ? value : $"'{value.ToString().Replace("'", "＇")}'")}";
             }
 
             insert += ")";

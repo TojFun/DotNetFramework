@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DotNetFramework.utils
 {
@@ -16,15 +17,78 @@ namespace DotNetFramework.utils
             if (condition)
                 list.Add(value);
         }
+
+        public static void AddRange<T, S>(this Dictionary<T, S> source, Dictionary<T, S> collection)
+        {
+            if (collection == null)
+            {
+                throw new ArgumentNullException("Collection is null");
+            }
+
+            foreach (var item in collection)
+            {
+                if (!source.ContainsKey(item.Key))
+                    source.Add(item.Key, item.Value);
+
+                else source[item.Key] = item.Value;
+            }
+        }
     }
 
-    public class WikiLink : WebElement
+    public class Script : WebElement
+    {
+        public Script(string js) :
+            base("script", children: js)
+        { }
+    }
+
+    public class ImageLink : WebElement
+    {
+        public static int counter = 0;
+        private string id;
+
+        public ImageLink(string src, string link, string discription, object classes = null)
+            : base("div", $"imglink-{counter}", classes)
+        {
+            AppendClass("imglink-div clickable box preload");
+
+            AppendChildren(new WebElement[] {
+                new WebElement("img", classes: "imglink-pic box",
+                attributes: new Dictionary<string, string> {
+                   { "onclick" , $"window.location.href='{link}'"},
+                   { "src", src },
+                   { "alt","Couldn't load image :(" }
+               }),
+                new WebElement("div", classes: "imglink-content", children:discription)
+            });
+
+            id = $"imglink-{counter}";
+            counter++;
+
+            AppendChild(new Script(
+                $"const article = document.querySelector('#{id}');" +
+                "setTimeout(() => {" +
+                "   article.classList.remove('preload');" +
+                "}, 500);"
+            ));
+        }
+    }
+
+    public class Link : WebElement
+    {
+        public Link(object children, string link, string id = null, string classes = null)
+            : base("a", id, "link underline-hover-effect", children,
+                new Dictionary<string, string> { { "href", link } },
+                new Dictionary<string, string> { { "font-weight", "bold" } }
+            )
+        { if (classes != null) AppendClass(classes); }
+    }
+
+    public class WikiLink : Link
     {
         private static int counter = 0;
-        public WikiLink(string text, string link = null) : base("a", $"wikilink{counter}", "link underline-hover-effect", text,
-            new Dictionary<string, string> { { "href", $"https://en.wikipedia.org/wiki/{(link == null ? text : link)}" } },
-            new Dictionary<string, string> { { "font-weight", "bold" } }
-            ) => counter++;
+        public WikiLink(string text, string link = null) :
+            base(text, $"https://en.wikipedia.org/wiki/{(link == null ? text : link)}", $"wikilink{counter}") => counter++;
     }
     public class ErrorMessage : WebElement
     {
@@ -62,14 +126,14 @@ namespace DotNetFramework.utils
     public class OrderedList : WebElement
     {
         private static int count = 1;
-        public OrderedList(string[] children) :
+        public OrderedList(string[] children, Dictionary<string, string> childStyle = null) :
             base("ol", $"ol{count}")
         {
 
             count++;
             foreach (string child in children)
             {
-                AppendChild(new WebElement("li", children: $"{child}."));
+                AppendChild(new WebElement("li", children: $"{child}.", styles: childStyle));
             }
         }
     }

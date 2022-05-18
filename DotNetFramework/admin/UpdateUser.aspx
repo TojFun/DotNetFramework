@@ -152,21 +152,35 @@
             </div>
 
             <div class="row submit-button-container">
-                <span class="form-column">
+                <span class="button-coutainer ">
+                    <input
+                        class="submit-button button-secondary"
+                        type="reset"
+                        id="reset"
+                        name="reset"
+                        value="אתחל"/>
+                </span>
+               
+                <span class="button-coutainer">
+                    <input
+                        class="submit-button button-secondary"
+                        type="button"
+                        id="return"
+                        name="return"
+                        value="חזור"
+                        onclick="window.location.href='Home.aspx'"
+                       />
+                </span>
+            </div>
+
+            <div class="row submit-button-container">
+                <span class="button-coutainer" style=" flex: 50%;">
                     <input
                         class="submit-button"
                         type="submit"
                         id="updateUserSubmitButton"
                         name="updateUserSubmitButton"
                         value="עדכן" />
-                </span>
-                <span class="form-column">
-                    <input
-                        class="submit-button"
-                        type="reset"
-                        id="reset"
-                        name="reset"
-                        value="אתחל" />
                 </span>
             </div>
         </form>

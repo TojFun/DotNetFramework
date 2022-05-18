@@ -1,27 +1,41 @@
 /* Setups: */
 :root {
+  /*Light Vars*/
   --light-primary: #512da8;
-  --light-primary-dark: #3700b3;
-  --light-secondary: #303f9f;
+  --light-primary-dark: #311b92;
+
+  --light-secondary: #0c4c7d;
+  --light-secondary-dark: #1a237e;
+
   --light-primary-text: #191d20;
   --light-secondary-text: #30373b;
   --light-light-text: #f0f6f6;
   --light-secondary-light-text: #d3e1e1;
+
   --light-background: rgb(213, 224, 225);
   --light-input-color: #d1c4e9;
 
+  --light-imglnk-cntnt: rgba(225, 234, 233, 0.648);
+
+  /*Dark Vars*/
   --dark-primary: #1976d2;
   --dark-primary-dark: #0d47a1;
+
   --dark-secondary: #00796b;
+  --dark-secondary-dark: #004d40;
+
   --dark-primary-text: #e6f5f5;
   --dark-secondary-text: #bccdd0;
   --dark-light-text: #eeeeee;
   --dark-secondary-light-text: #d1dfe2;
+
   --dark-input-color: rgb(85, 102, 112);
   --dark-background: #2d2d2d;
+
+  --dark-imglnk-cntnt: rgba(41, 44, 44, 0.648);
+
   font-size: 1.2vw;
   font-family: "Varela Round", sans-serif;
-
   scroll-behavior: smooth;
   scroll-padding-top: 1.5em;
 }
@@ -36,14 +50,30 @@ select {
   background-color: var(--input-color);
   border-color: var(--primary-dark);
   border-style: solid;
-  border-width: 0.05em;
+  border-width: 0.15em;
   border-radius: 0.3em;
+  padding: 0.5em;
+
+  background-color: var(--input-color);
+  border-color: var(--primary-dark);
 }
 
 input:hover,
 textarea:hover,
 select:hover {
-  border-width: 0.15em;
+  border-color: var(--primary);
+}
+
+input:hover,
+select:hover {
+  cursor: pointer;
+}
+
+input[type="text"]:hover,
+input[type="mail"]:hover,
+input[type="password"]:hover,
+input[type="tel"]:hover {
+  cursor: text;
 }
 
 .box {
@@ -58,9 +88,24 @@ input[type="reset"],
 input[type="submit"],
 button {
   color: var(--light-text);
-  background-color: var(--primary);
+
   font: unset;
   font-size: 0.8em;
+}
+
+input[type="button"]:not(.button-secondary),
+input[type="reset"]:not(.button-secondary),
+input[type="submit"]:not(.button-secondary),
+button:not(.button-secondary) {
+  background-color: var(--primary);
+}
+
+input[type="button"]:not(.button-secondary):active,
+input[type="reset"]:not(.button-secondary):active,
+input[type="submit"]:not(.button-secondary):active,
+button:not(.button-secondary):active {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -68,12 +113,15 @@ button {
     --primary: var(--dark-primary);
     --primary-dark: var(--dark-primary-dark);
     --secondary: var(--dark-secondary);
+    --secondary-dark: var(--dark-secondary-dark);
     --primary-text: var(--dark-primary-text);
     --secondary-text: var(--dark-secondary-text);
     --light-text: var(--dark-light-text);
     --secondary-light-text: var(--dark-secondary-light-text);
     --input-color: var(--dark-input-color);
     --background: var(--dark-background);
+
+    --imglnk-cntnt: var(--dark-imglnk-cntnt);
   }
 }
 
@@ -81,12 +129,15 @@ button {
   --primary: var(--dark-primary);
   --primary-dark: var(--dark-primary-dark);
   --secondary: var(--dark-secondary);
+  --secondary-dark: var(--dark-secondary-dark);
   --primary-text: var(--dark-primary-text);
   --secondary-text: var(--dark-secondary-text);
   --light-text: var(--dark-light-text);
   --secondary-light-text: var(--dark-secondary-light-text);
   --input-color: var(--dark-input-color);
   --background: var(--dark-background);
+
+  --imglnk-cntnt: var(--dark-imglnk-cntnt);
 }
 
 @media screen and (prefers-color-scheme: light) {
@@ -94,6 +145,7 @@ button {
     --primary: var(--light-primary);
     --primary-dark: var(--light-primary-dark);
     --secondary: var(--light-secondary);
+    --secondary-dark: var(--light-secondary-dark);
     --primary-text: var(--light-primary-text);
     --secondary-text: var(--light-secondary-text);
     --light-text: var(--light-light-text);
@@ -101,6 +153,8 @@ button {
     --input-color: var(--light-input-color);
     --input-other-color: var(--light-input-other-color);
     --background: var(--light-background);
+
+    --imglnk-cntnt: var(--light-imglnk-cntnt);
   }
 }
 
@@ -108,6 +162,7 @@ button {
   --primary: var(--light-primary);
   --primary-dark: var(--light-primary-dark);
   --secondary: var(--light-secondary);
+  --secondary-dark: var(--light-secondary-dark);
   --primary-text: var(--light-primary-text);
   --secondary-text: var(--light-secondary-text);
   --light-text: var(--light-light-text);
@@ -115,6 +170,8 @@ button {
   --input-color: var(--light-input-color);
   --input-other-color: var(--light-input-other-color);
   --background: var(--light-background);
+
+  --imglnk-cntnt: var(--light-imglnk-cntnt);
 }
 
 body {
@@ -351,6 +408,96 @@ a.btn {
   direction: ltr;
 }
 
+.no-padding {
+  padding: 0;
+}
+
+.f-p {
+  margin-top: 0;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.button-secondary {
+  background-color: var(--secondary);
+  border-color: var(--secondary-dark);
+}
+
+.button-secondary:hover {
+  border-color: var(--secondary);
+}
+
+.button-secondary:active {
+  background-color: var(--secondary-dark);
+  border-color: var(--secondary-dark);
+}
+
+/*ImageLink*/
+
+.imglink-div {
+  box-sizing: border-box;
+  position: relative;
+  width: auto;
+  padding: 0;
+  display: flex;
+}
+
+.imglink-content {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  background-color: var(--imglnk-cntnt);
+  bottom: 0;
+  border-radius: 0 0 0.5em 0.5em;
+  color: var(--primary-text);
+  padding: 0.5em;
+  overflow: hidden;
+  animation: fadeOut 0.5s cubic-bezier(0.65, 0.05, 0.29, 1);
+  opacity: 0;
+  height: 0;
+}
+
+.imglink-pic {
+  aspect-ratio: auto;
+  height: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    height: 30%;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    height: 30%;
+  }
+  to {
+    opacity: 0;
+    height: 0;
+  }
+}
+
+.imglink-div.preload > .imglink-content {
+  animation: fadeOut 0s;
+}
+
+.imglink-div:hover > .imglink-content {
+  animation: fadeIn 0.3s cubic-bezier(0.65, 0.05, 0.29, 1);
+  opacity: 1;
+  height: 30%;
+}
+
 /* Article: */
 article h1 {
   margin: 0 0 0.2em 0;
@@ -370,7 +517,7 @@ article h5 {
 }
 
 .pic {
-  width: 70%;
+  width: 75%;
   height: auto;
   aspect-ratio: auto;
   margin-right: 2em;
@@ -385,7 +532,6 @@ article h5 {
   grid-template-rows: repeat(3, fit-content()); */
   grid-column-gap: 0px;
   grid-row-gap: 1em;
-
   margin-bottom: 2em;
 }
 
@@ -405,16 +551,4 @@ section.s3 {
 
 section.s4 {
   grid-area: 3 / 1 / 4 / 3;
-}
-
-.no-padding {
-  padding: 0;
-}
-
-.f-p {
-  margin-top: 0;
-}
-
-.clickable{
-    cursor:pointer;
 }

@@ -69,12 +69,19 @@
     <Content Include="assets\Amazon-Echo-Devices.png" />
     <Content Include="assets\Amazon-Echo.jpg" />
     <Content Include="assets\automation-1.png" />
+    <Content Include="assets\chromecast.jpg" />
+    <Content Include="assets\echo-dot.jpg" />
     <Content Include="assets\google-home.png" />
+    <Content Include="assets\google-nest-hub.jpg" />
     <Content Include="assets\google-nest-smart-home-devices.jpg" />
     <Content Include="assets\hero_blog_homeapp.jpg" />
+    <Content Include="assets\homepod-mini.jpg" />
     <Content Include="assets\Image-via-Shutterstock.com_.jpg" />
     <Content Include="assets\iOS-15-HomeKit-Guide.jpg" />
     <Content Include="assets\ios14-homepod-ipad-iphone12-pro-watch-homekit-hero.jpg" />
+    <Content Include="assets\sensibo.jpg" />
+    <Content Include="assets\smart-home-happy.jpg" />
+    <Content Include="assets\Sonos-One.jpg" />
     <Content Include="Global.asax" />
     <Content Include="javascript\master.js" />
     <Content Include="javascript\validation.js" />
@@ -99,6 +106,7 @@
     <Content Include="styles\styles.css" />
     <Content Include="styles\home.css" />
     <Content Include="styles\options.css" />
+    <Content Include="styles\wtb.css" />
     <Content Include="Web.config" />
     <Content Include="pages\Home.aspx" />
     <Content Include="pages\WhatCanYouDo.aspx" />

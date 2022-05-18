@@ -135,7 +135,7 @@ namespace DotNetFramework
 
             foreach (var pair in user)
                 str +=
-                    $"{pair.Key} = { (pair.Value.GetType() == typeof(bool) ? pair.Value : $"'{pair.Value}'")},";
+                    $"{pair.Key} = {(pair.Value.GetType() == typeof(bool) ? pair.Value : $"'{pair.Value}'")},";
 
             return str.Remove(str.Length - 1);
         }
