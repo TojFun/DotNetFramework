@@ -1,5 +1,5 @@
-﻿using System;
-
+﻿using DotNetFramework.utils;
+using System;
 namespace DotNetFramework.pages
 {
     public partial class Options : System.Web.UI.Page
@@ -14,12 +14,14 @@ namespace DotNetFramework.pages
                 return;
             }
 
+            Utils.Print(user.FavoriteBrand);
+
             switch (user.FavoriteBrand)
             {
-                case "Apple":
+                case "apple":
                     Response.Redirect("~/options/Apple.aspx");
                     break;
-                case "Amazon":
+                case "amazon":
                     Response.Redirect("~/options/Amazon.aspx");
                     break;
                 default:

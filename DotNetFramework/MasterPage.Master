@@ -96,10 +96,10 @@
               <strong>לחץ כאן!</strong>
           </a>
             </span>
-            <div class="">
+            <div>
                 <a class="link" href="#header">
                     <span class="subtext">עלה למעלה</span>
-                    <img src="../assets/arrow_upward_black_24dp.svg" alt="" />
+                    <img class="arrow" src="../assets/arrow_upward_black_24dp.svg" alt="" />
                 </a>
             </div>
         </div>

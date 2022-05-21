@@ -17,7 +17,7 @@ namespace DotNetFramework
         public string Email { get => email; set => email = value; }
         public string Gender => gender;
         public string Phone => phone;
-        public string FavoriteBrand => favoriteBrand;
+        public string FavoriteBrand { get => favoriteBrand; set => favoriteBrand = value; }
         public DateTime DueDate => dueDate;
         public string Description => description;
         public string Password => password;

@@ -1,10 +1,13 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Options.master.cs" Inherits="DotNetFramework.options.Options" %>
+
 <%@ Import Namespace="DotNetFramework.utils" %>
+<%@ Import Namespace="DotNetFramework" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../javascript/favoriteBrand.js" defer></script>
     <link rel="stylesheet" href="../styles/options.css" />
-        <title>האופציות</title>
+    <title>האופציות</title>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScreen" runat="server">
@@ -30,6 +33,30 @@
                 חברות אלו אינן מספיק ורסטיליות והן פונות בעיקר לקהל שקונה את המכשירים שלהם, ועל הדרך
                 מקבל את השירות החכם שלהן.
             </p>
+
+            <% if (Session["user"] != null)
+                {%>
+            <div>
+                <div>
+                    <label for="favoriteBrand">מותג מועדף: </label>
+                </div>
+
+                <div>
+                    <select
+                        class="en favoriteBrand"
+                        name="favoriteBrand"
+                        id="favoriteBrand" onchange="changeBrand(this.value)">
+                        <!--Brands: Google, Alexa (Amazon), Siri (Apple)-->
+                        <option value="google" <%=((WebsiteUser) Session["user"]).FavoriteBrand == "google" ? 
+                            "selected='selected'" :""%>>Google</option>
+                        <option value="amazon" <%=((WebsiteUser) Session["user"]).FavoriteBrand == "amazon" ? 
+                            "selected='selected'" :""%>>Alexa (Amazon)</option>
+                        <option value="apple" <%=((WebsiteUser) Session["user"]).FavoriteBrand == "apple" ? 
+                            "selected='selected'" :""%>>Siri (Apple)</option>
+                    </select>
+                </div>
+            </div>
+            <%}%>
         </section>
 
         <section class="s3">
@@ -37,14 +64,14 @@
         </section>
 
         <section class="s4 flex space-between">
-             <a class="btn colorful-btn <%=Request.Path.Split('/')[2] == "Google.aspx" ? "selected" : "" %>" href="Google.aspx#option">Google</a>
-             <a class="btn colorful-btn <%=Request.Path.Split('/')[2] == "Amazon.aspx" ? "selected" : "" %>" href="Amazon.aspx#option">Amazon</a>
-             <a class="btn colorful-btn <%=Request.Path.Split('/')[2] == "Apple.aspx" ? "selected" : "" %>" href="Apple.aspx#option">Apple</a>
+            <a class="btn colorful-btn <%=Request.Path.Split('/')[2] == "Google.aspx" ? "selected" : "" %>" href="Google.aspx#option">Google</a>
+            <a class="btn colorful-btn <%=Request.Path.Split('/')[2] == "Amazon.aspx" ? "selected" : "" %>" href="Amazon.aspx#option">Amazon</a>
+            <a class="btn colorful-btn <%=Request.Path.Split('/')[2] == "Apple.aspx" ? "selected" : "" %>" href="Apple.aspx#option">Apple</a>
         </section>
     </article>
 
     <article class="box article-parent" id="option">
         <asp:ContentPlaceHolder ID="OptionsScreen" runat="server"></asp:ContentPlaceHolder>
     </article>
-    
+
 </asp:Content>

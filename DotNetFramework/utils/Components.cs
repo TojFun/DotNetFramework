@@ -48,7 +48,7 @@ namespace DotNetFramework.utils
         private string id;
 
         public ImageLink(string src, string link, string discription, object classes = null)
-            : base("div", $"imglink-{counter}", classes)
+            : base("div", $"imglink{counter}", classes)
         {
             AppendClass("imglink-div clickable box preload");
 
@@ -62,13 +62,13 @@ namespace DotNetFramework.utils
                 new WebElement("div", classes: "imglink-content", children:discription)
             });
 
-            id = $"imglink-{counter}";
+            id = $"imglink{counter}";
             counter++;
 
             AppendChild(new Script(
-                $"const article = document.querySelector('#{id}');" +
+                $"const {id} = document.querySelector('#{id}');" +
                 "setTimeout(() => {" +
-                "   article.classList.remove('preload');" +
+                $"   {id}.classList.remove('preload');" +
                 "}, 500);"
             ));
         }
@@ -160,7 +160,7 @@ namespace DotNetFramework.utils
                 ) }
            );
 
-        public static WebElement TextInput(string id, string label, string lang = "he", string type = "text", string value = null, bool textarea = false)
+        public static WebElement TextInput(string id, string label, string lang = "he", string type = "text", string value = null, bool textarea = false, bool toValidate = true)
             => new WebElement("div",
             classes: "row",
             children: new List<object> {
@@ -175,7 +175,7 @@ namespace DotNetFramework.utils
                     children: new WebElement(textarea ? "textarea" : "input", id: id, classes:"form-input",
                         children:textarea ? value : null,
                         attributes: new Dictionary<string, string> {
-                            {"onkeyup", "validate(this)" },
+                            {"onkeyup", toValidate ? "validate(this)" : "" },
                             {"type",type }, {"name", id},
                             {"lang",lang },
                             { "dir",lang == "he" ? "rtl":"ltr"},

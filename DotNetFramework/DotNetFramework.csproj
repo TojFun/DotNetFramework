@@ -68,6 +68,7 @@
     <Content Include="assets\AGA.png" />
     <Content Include="assets\Amazon-Echo-Devices.png" />
     <Content Include="assets\Amazon-Echo.jpg" />
+    <Content Include="assets\audio.jpg" />
     <Content Include="assets\automation-1.png" />
     <Content Include="assets\chromecast.jpg" />
     <Content Include="assets\echo-dot.jpg" />
@@ -76,17 +77,24 @@
     <Content Include="assets\google-nest-smart-home-devices.jpg" />
     <Content Include="assets\hero_blog_homeapp.jpg" />
     <Content Include="assets\homepod-mini.jpg" />
+    <Content Include="assets\hue.jpg" />
     <Content Include="assets\Image-via-Shutterstock.com_.jpg" />
     <Content Include="assets\iOS-15-HomeKit-Guide.jpg" />
     <Content Include="assets\ios14-homepod-ipad-iphone12-pro-watch-homekit-hero.jpg" />
+    <Content Include="assets\nest-cam.jpg" />
+    <Content Include="assets\nest-lock.jpg" />
+    <Content Include="assets\nest-max.jpg" />
+    <Content Include="assets\roller-blind.jpg" />
     <Content Include="assets\sensibo.jpg" />
     <Content Include="assets\smart-home-happy.jpg" />
     <Content Include="assets\Sonos-One.jpg" />
     <Content Include="Global.asax" />
+    <Content Include="javascript\favoriteBrand.js" />
     <Content Include="javascript\master.js" />
     <Content Include="javascript\validation.js" />
     <Content Include="admin\Home.aspx" />
     <Content Include="admin\DeleteUser.aspx" />
+    <Content Include="pages\ChangeBrand.aspx" />
     <Content Include="pages\Logout.aspx" />
     <Content Include="pages\Architecture.aspx" />
     <Content Include="assets\arrow_upward_black_24dp.svg" />
@@ -101,6 +109,7 @@
     <Content Include="options\Apple.aspx" />
     <Content Include="options\Amazon.aspx" />
     <Content Include="styles\admin.css" />
+    <Content Include="styles\architecture.css" />
     <Content Include="styles\dark-mode-toggle.css" />
     <Content Include="styles\login.css" />
     <Content Include="styles\styles.css" />
@@ -129,6 +138,13 @@
     </Compile>
     <Compile Include="admin\DeleteUser.aspx.designer.cs">
       <DependentUpon>DeleteUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\ChangeBrand.aspx.cs">
+      <DependentUpon>ChangeBrand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\ChangeBrand.aspx.designer.cs">
+      <DependentUpon>ChangeBrand.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>

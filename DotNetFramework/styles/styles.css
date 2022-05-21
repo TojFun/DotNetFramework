@@ -19,7 +19,7 @@
 
   /*Dark Vars*/
   --dark-primary: #1976d2;
-  --dark-primary-dark: #0d47a1;
+  --dark-primary-dark: #1565c0;
 
   --dark-secondary: #00796b;
   --dark-secondary-dark: #004d40;
@@ -185,13 +185,18 @@ main {
 }
 
 footer {
-  padding: 2%;
+  padding: 1%;
 }
 
 /* General: */
 .align-center {
   display: flex;
   align-items: center;
+}
+
+table {
+  border-collapse: collapse;
+  box-sizing: border-box;
 }
 
 .link {
@@ -214,6 +219,14 @@ footer {
 
 .title {
   color: var(--primary-text);
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.arrow {
+  width: 1em;
 }
 
 .subtext {
@@ -434,6 +447,10 @@ a.btn {
   border-color: var(--secondary-dark);
 }
 
+.padding {
+  padding: 1%;
+}
+
 /*ImageLink*/
 
 .imglink-div {
@@ -528,8 +545,6 @@ article h5 {
 .article-parent {
   padding: 2em;
   display: grid;
-  /* grid-template-columns: repeat(2, fit-content());
-  grid-template-rows: repeat(3, fit-content()); */
   grid-column-gap: 0px;
   grid-row-gap: 1em;
   margin-bottom: 2em;
@@ -551,4 +566,12 @@ section.s3 {
 
 section.s4 {
   grid-area: 3 / 1 / 4 / 3;
+}
+
+.en {
+  font-family: "Nunito", sans-serif;
+}
+
+.favoriteBrand {
+  font-size: 1em;
 }

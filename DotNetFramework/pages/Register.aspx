@@ -35,7 +35,7 @@
 
             <div class="row">
                 <span class="form-column">
-                    <label for="gender">מין:</label>
+                    <label class="required" for="gender">מין:</label>
                 </span>
                 <span class="form-column">
                     <input type="radio" id="male" name="gender" value="male" />
@@ -52,7 +52,7 @@
 
                 <span class="form-column">
                     <input type="checkbox" id="isAdult" name="isAdult" />
-                    <label for="isAdult">אני מעל גיל 18</label>
+                    <label for="isAdult" class="required">אני מעל גיל 18</label>
                 </span>
             </div>
 

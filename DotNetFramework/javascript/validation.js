@@ -57,16 +57,14 @@ const validateRegistration = () => {
 };
 
 const validateLogin = () => {
-    resetErrors(); // reset all errors
+  resetErrors(); // reset all errors
 
-    let isValid = true; // assume all fields are valid
+  let isValid = true; // assume all fields are valid
 
-    isValid = validateEmail() && isValid;
-    isValid = validatePassword();
+  isValid = validateEmail() && isValid;
 
-    return isValid;
-
-}
+  return isValid;
+};
 
 /**
  * @param  {HTMLInputElement} element
@@ -93,6 +91,7 @@ const validate = (element) => {
       return true;
   }
 };
+
 /**
  * @param  {HTMLInputElement} name
  */

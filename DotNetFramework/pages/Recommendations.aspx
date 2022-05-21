@@ -58,9 +58,9 @@
         </section>
 
         <section class="s3 flex space-between" style="flex-direction: column; align-items: flex-end">
-            <%= new ImageLink("../assets/google-nest-smart-home-devices.jpg", "../options/Google.aspx", "Google - Google Home","pic margin-bottom btn" ) %>
-            <%= new ImageLink("../assets/Amazon-Echo.jpg", "../options/Amazon.aspx", "Amazon - Alexa","pic margin-bottom btn" ) %>
-            <%= new ImageLink("../assets/ios14-homepod-ipad-iphone12-pro-watch-homekit-hero.jpg", "Apple - HomeKit","../options/Apple.aspx", "pic btn" ) %>
+            <%= new ImageLink("../assets/google-nest-smart-home-devices.jpg", "../options/Google.aspx#option", "Google - Google Home","pic margin-bottom btn" ) %>
+            <%= new ImageLink("../assets/Amazon-Echo.jpg", "../options/Amazon.aspx#option", "Amazon - Alexa","pic margin-bottom btn" ) %>
+            <%= new ImageLink("../assets/ios14-homepod-ipad-iphone12-pro-watch-homekit-hero.jpg", "../options/Apple.aspx#option", "Apple - HomeKit", "pic btn" ) %>
         </section>
     </article>
 </asp:Content>

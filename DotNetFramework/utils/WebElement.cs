@@ -48,7 +48,9 @@ namespace DotNetFramework.utils
 
         public WebElement SetAttribute(string key, string value)
         {
-            attributes[key] = value;
+            if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(value))
+                attributes[key] = value;
+
             return this;
         }
 

@@ -27,7 +27,7 @@
             onreset="resetErrors()"
             action="Login.aspx">
             <%=Components.TextInput("email", "דוא\"ל:", "en")%>
-            <%=Components.TextInput("pswrd", "סיסמה:", type:"password")%>
+            <%=Components.TextInput("pswrd", "סיסמה:", type:"password", toValidate:false)%>
 
             <div class="row submit-button-container">
                 <span class="form-column">
