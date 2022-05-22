@@ -2,34 +2,35 @@
 const body = document.body;
 
 const setAttr = () => {
-  body.setAttribute(
-    "color-scheme",
-    localStorage.getItem("darkMode") == "true" ? "dark" : "light"
-  );
+    const isDark = localStorage.getItem("darkMode") == "true";
+
+    body.setAttribute("color-scheme", isDark ? "dark" : "light");
+    checkbox.checked = isDark;
+
 };
 
 if (localStorage.getItem("darkMode") == null) {
-  localStorage.setItem(
-    "darkMode",
-    window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "true"
-      : "false"
-  );
+    localStorage.setItem(
+        "darkMode",
+        window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "true"
+            : "false"
+    );
 }
 
 setAttr();
 
 const toggle = () => {
-  localStorage.setItem(
-    "darkMode",
-    localStorage.getItem("darkMode") == "true" ? "false" : "true"
-  );
+    localStorage.setItem(
+        "darkMode",
+        localStorage.getItem("darkMode") == "true" ? "false" : "true"
+    );
 
-  setAttr();
+    setAttr();
 };
 
 const logout = () => {
-  if (confirm("Are you sure you want to logout?"))
-    window.location.href = "/pages/Logout.aspx";
+    if (confirm("Are you sure you want to logout?"))
+        window.location.href = "/pages/Logout.aspx";
 };

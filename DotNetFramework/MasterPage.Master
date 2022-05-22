@@ -73,8 +73,8 @@
             <div>
                 <input type="checkbox" class="dark-mode-toggle" id="checkbox" onchange="toggle()">
                 <label for="checkbox" class="dark-mode-toggle-label">
-                    <span class="fas fa-moon">🌙</span>
                     <span class='fas fa-sun'>🔆</span>
+                    <span class="fas fa-moon">🌙</span>
                     <span class='dark-mode-toggle-ball'></span>
                 </label>
             </div>
